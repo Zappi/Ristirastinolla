@@ -1,10 +1,15 @@
 package ristirastinolla;
 
+import ristirastinolla.logiikka.Board;
+import ristirastinolla.logiikka.Game;
+
 
 public class Main {
     
     public static void main(String[] args) {
-        
-        System.out.println("It works");
-    }
+
+        Game game = new Game(3,3);
+        game.startGame();
+
+      }
 }
