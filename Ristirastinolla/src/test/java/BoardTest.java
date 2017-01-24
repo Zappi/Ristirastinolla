@@ -45,5 +45,25 @@ public class BoardTest {
         assertTrue(board != null);
     }
     
+    @Test
+    public void boardRowSizeIsCorrect() {
+        assertEquals(3, board.getRowSize());
+    }
     
+    @Test
+    public void boardColSizeIsCorrect() {
+        assertEquals(3, board.getColumnSize());
+    }
+    
+    @Test
+    public void updateTableMethodWorksWithPlayerX() {
+        board.updateTable('X', 2, 1);
+        assertTrue(board.returnPosition('X',2,1));
+    }
+    
+    @Test
+    public void updateTableMethodWorksWithPlayerY() {
+        board.updateTable('Y', 0, 1);
+        assertTrue(board.returnPosition('Y',0,1));
+    }
 }

@@ -73,13 +73,8 @@ public class GameTest {
     
     @Test
     public void whenGivingValidValuesColAndRowReturnFalse() {
-        assertFalse(game.valid(3, 3));
+        assertFalse(game.valid(2, 2));
     }
     
-    @Test
-    public void naurettava() {
-        game.startGame();
-        player = 'X';
-    }
-    
+
 }
