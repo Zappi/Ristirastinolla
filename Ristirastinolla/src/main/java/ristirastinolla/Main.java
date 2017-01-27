@@ -3,13 +3,12 @@ package ristirastinolla;
 import ristirastinolla.logiikka.Board;
 import ristirastinolla.logiikka.Game;
 
-
 public class Main {
-    
+
     public static void main(String[] args) {
 
-        Game game = new Game(3,3);
+        Game game = new Game(3, 3);
         game.startGame();
 
-      }
+    }
 }

@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
     <action>
@@ -6,6 +5,14 @@
         <displayName>pit</displayName>
         <goals>
             <goal>org.pitest:pitest-maven:mutationCoverage</goal>
+        </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-checkstyle</actionName>
+        <displayName>Checkstyle</displayName>
+        <goals>
+            <goal>jxr:jxr</goal>
+            <goal>checkstyle:checkstyle</goal>
         </goals>
     </action>
 </actions>
