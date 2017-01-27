@@ -12,4 +12,4 @@ Peli on tarkoitettu kahdelle hengelle pelattavaksi. Alustavana suunnitelmana on 
 
 **Määrittelyvaiheen luokkakaavio**
 
-![Maarittelyvaiheen luokkakaavio] (Ristirastinolla/dokumentaatio/Javalabra1luokkakaavio.png)
+![Maarittelyvaiheen luokkakaavio] (https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/Javalabra1luokkakaavio.png)
