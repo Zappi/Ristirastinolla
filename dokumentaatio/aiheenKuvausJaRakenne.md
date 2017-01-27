@@ -9,3 +9,7 @@ Peli on tarkoitettu kahdelle hengelle pelattavaksi. Alustavana suunnitelmana on 
 **Käyttäjät:** Pelaaja 1 ja mahdollinen pelaaja 2
 
 **Käyttäjien toiminnot:** Pelaaja aloittaa pelin päävalikosta. Pelin pelaaminen tapahtuu klikkaamalla hiirellä pelikenttää ja valitsemalla haluamansa ruudut. 
+
+**Määrittelyvaiheen luokkakaavio**
+
+![Maarittelyvaiheen luokkakaavio] (/dokumentaatio/Javalabra1luokkakaavio (1).png)
