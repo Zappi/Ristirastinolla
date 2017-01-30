@@ -1,12 +1,7 @@
 package ristirastinolla.logic;
 
-import java.util.Scanner;
 import ristirastinolla.UI.UI;
 
-/**
- *
- * @author jtamland
- */
 public class Game {
 
     private boolean gameOver;
@@ -22,6 +17,7 @@ public class Game {
         this.board = new Board(x, y);
         this.gameOver = false;
         this.ui = new UI();
+        ui.startUI();
 
     }
 
@@ -31,30 +27,39 @@ public class Game {
 
         board.printBoard();
         while (!gameOver) {
-
-            checkSelectedMove(player);
-            player = 'O';
-            checkSelectedMove(player);
+            
             player = 'X';
-
-            gameOver = true; //this is just for the pit test for now
+            playerSelectMoves(player); //These two method calls asks from UI where the player wants to put his mark. 
+            if(gameOver == true) {
+                break;
+            }
+            player = 'O';
+            playerSelectMoves(player);
         }
-
+        
+        System.out.println("");
+        System.out.println("Player " + player + " wins!");
+        
+        System.out.println("");
         System.out.println("Game over");
     }
 
-    private void checkSelectedMove(char player) {
+    private void playerSelectMoves(char player) { //This method will check the final selection wheter the mark can be placed on the exact place.
         int row = ui.selectRow(player);
         int col = ui.selectCol(player);
 
         while (valid(row, col)) {
-            checkSelectedMove(player);
+            playerSelectMoves(player);
         }
         board.updateTable(player, row, col);
+         if(hasWon(player)) {
+                gameOver = true;
+                return;
+            }
         board.printBoard();
     }
 
-    public boolean valid(int row, int col) {
+    public boolean valid(int row, int col) {  //This method checks if the selected coordinates are appropriate and returns true if they are not. 
         if (row > x - 1 || row < 0) {
             System.out.println("Unvalid row");
             return true;
@@ -63,6 +68,36 @@ public class Game {
             System.out.println("Unvalid column");
             return true;
         }
+        
+        return false;
+    }
+    
+    public boolean hasWon(char player) {
+        return (hasRowsWon() ||hasColsWon() ||hasDiagonalWon());
+    }
+    
+    public boolean hasRowsWon() {
+        if (board.checkIfRowWin()) {
+            gameOver = true;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean hasColsWon() {
+       if (board.checkIfColWin()) {
+            gameOver = true;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean hasDiagonalWon() {
+         if (board.checkIfDiagonalWin()) {
+            gameOver = true;
+            return true;
+        }
         return false;
     }
 }
+

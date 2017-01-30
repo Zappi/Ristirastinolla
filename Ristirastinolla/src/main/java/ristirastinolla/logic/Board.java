@@ -35,7 +35,6 @@ public class Board {
     }
 
     public void updateTable(char player, int row, int col) {
-
         board[row][col] = player;
     }
 
@@ -45,6 +44,38 @@ public class Board {
 
     public int getColumnSize() {
         return board[0].length;
+    }
+
+    public boolean checkIfRowWin() {
+        for (int i = 0; i < 3; i++) {
+            if ((finalCheck(board[i][0], board[i][1], board[i][2]) == true)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkIfColWin() {
+        for (int i = 0; i < 3; i++) {
+            if(finalCheck(board[0][i], board[1][i], board[2][i]) == true) {
+                return true;
+            }
+        }
+        return false;
+    } 
+    
+    public boolean checkIfDiagonalWin() {
+        for (int i = 0; i < 3; i++) {
+            if(finalCheck(board[0][0], board[1][1], board[2][2]) == true) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
+    public boolean finalCheck(char a, char b, char c) { //Does the final check wheter the whole line has same values and the other player wins!
+        return ((a != '_') && (a == b) && (b == c));
     }
 
     public boolean returnPosition(char a, int x, int y) {
