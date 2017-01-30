@@ -1,4 +1,4 @@
-package ristirastinolla.logiikka;
+package ristirastinolla.logic;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import ristirastinolla.logiikka.Board;
+import ristirastinolla.logic.Board;
 
 /**
  *

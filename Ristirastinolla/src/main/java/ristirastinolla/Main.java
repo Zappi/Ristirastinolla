@@ -1,7 +1,7 @@
 package ristirastinolla;
 
-import ristirastinolla.logiikka.Board;
-import ristirastinolla.logiikka.Game;
+import ristirastinolla.logic.Board;
+import ristirastinolla.logic.Game;
 
 public class Main {
 

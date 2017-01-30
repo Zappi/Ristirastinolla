@@ -1,6 +1,7 @@
-package ristirastinolla.logiikka;
+package ristirastinolla.logic;
 
 import java.util.Scanner;
+import ristirastinolla.UI.UI;
 
 /**
  *
@@ -10,8 +11,8 @@ public class Game {
 
     private boolean gameOver;
     private char player = 'X';
-    private Scanner reader;
     private Board board;
+    private UI ui;
     private int x;
     private int y;
 
@@ -19,22 +20,21 @@ public class Game {
         this.x = x;
         this.y = y;
         this.board = new Board(x, y);
-        this.reader = new Scanner(System.in);
         this.gameOver = false;
+        this.ui = new UI();
 
     }
 
     public void startGame() {
         board.setBoard();
-        System.out.println("Welcome to play TicTacToe");
-        System.out.println("");
+        
 
         board.printBoard();
         while (!gameOver) {
 
-            selectMove(player);
+            checkSelectedMove(player);
             player = 'O';
-            selectMove(player);
+            checkSelectedMove(player);
             player = 'X';
 
             gameOver = true; //this is just for the pit test for now
@@ -43,14 +43,12 @@ public class Game {
         System.out.println("Game over");
     }
 
-    private void selectMove(char player) {
-        System.out.print("Player " + player + " select your row: ");
-        int row = Integer.parseInt(reader.nextLine());
-        System.out.print("Player " + player + " select your column: ");
-        int col = Integer.parseInt(reader.nextLine());
+    private void checkSelectedMove(char player) {
+        int row = ui.selectRow(player);
+        int col = ui.selectCol(player);
 
         while (valid(row, col)) {
-            selectMove(player);
+            checkSelectedMove(player);
         }
         board.updateTable(player, row, col);
         board.printBoard();

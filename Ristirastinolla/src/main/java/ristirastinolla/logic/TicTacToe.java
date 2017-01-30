@@ -1,4 +1,4 @@
-package ristirastinolla.logiikka;
+package ristirastinolla.logic;
 
 
 public class TicTacToe {
