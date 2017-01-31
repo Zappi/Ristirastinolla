@@ -30,9 +30,11 @@ public class Game {
             
             player = 'X';
             playerSelectMoves(player); //These two method calls asks from UI where the player wants to put his mark. 
+            
             if(gameOver == true) {
                 break;
             }
+            
             player = 'O';
             playerSelectMoves(player);
         }
@@ -47,9 +49,10 @@ public class Game {
     private void playerSelectMoves(char player) { //This method will check the final selection wheter the mark can be placed on the exact place.
         int row = ui.selectRow(player);
         int col = ui.selectCol(player);
-
         while (valid(row, col)) {
-            playerSelectMoves(player);
+            //playerSelectMoves(player);
+            row = ui.selectRow(player);
+            col = ui.selectCol(player);
         }
         board.updateTable(player, row, col);
          if(hasWon(player)) {
@@ -68,15 +71,19 @@ public class Game {
             System.out.println("Unvalid column");
             return true;
         }
+        if(board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
+            System.out.println("This place has already been taken.");
+            return true;
+        }
         
         return false;
     }
     
     public boolean hasWon(char player) {
-        return (hasRowsWon() ||hasColsWon() ||hasDiagonalWon());
+        return (rowHasWon() ||colHasWon() ||diagonalHasWon());
     }
     
-    public boolean hasRowsWon() {
+    public boolean rowHasWon() {
         if (board.checkIfRowWin()) {
             gameOver = true;
             return true;
@@ -84,7 +91,7 @@ public class Game {
         return false;
     }
     
-    public boolean hasColsWon() {
+    public boolean colHasWon() {
        if (board.checkIfColWin()) {
             gameOver = true;
             return true;
@@ -92,7 +99,7 @@ public class Game {
         return false;
     }
     
-    public boolean hasDiagonalWon() {
+    public boolean diagonalHasWon() {
          if (board.checkIfDiagonalWin()) {
             gameOver = true;
             return true;

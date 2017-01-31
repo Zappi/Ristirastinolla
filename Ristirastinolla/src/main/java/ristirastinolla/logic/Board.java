@@ -77,6 +77,17 @@ public class Board {
     public boolean finalCheck(char a, char b, char c) { //Does the final check wheter the whole line has same values and the other player wins!
         return ((a != '_') && (a == b) && (b == c));
     }
+    
+    public boolean checkIfSpotIsAlreadyTaken(int x, int y) {
+        for (int row = 0; row < this.board.length; row++) {
+            for (int col = 0; col < this.board[row].length; col++) {
+                if (row == x && col == y && (board[row][col] == 'X'|| board[row][col] == 'O')) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public boolean returnPosition(char a, int x, int y) {
         for (int row = 0; row < this.board.length; row++) {
