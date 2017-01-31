@@ -6,15 +6,15 @@
 package ristirastinolla.UI;
 
 import java.util.Scanner;
+import ristirastinolla.logic.Game;
 
 public class UI {
 
     private Scanner reader;
-
+    
     public UI() {
 
         this.reader = new Scanner(System.in);
-
     }
 
     public void startUI() {
@@ -25,12 +25,14 @@ public class UI {
 
     public int selectRow(char player) {
         System.out.print("Player " + player + " select your row: ");
-        return Integer.parseInt(reader.nextLine());
+        int toReturn = Integer.parseInt(reader.nextLine());
+        return toReturn;
     }
 
     public int selectCol(char player) {
         System.out.print("Player " + player + " select your column: ");
-        return Integer.parseInt(reader.nextLine());
+        int toReturn = Integer.parseInt(reader.nextLine());
+        return toReturn;
     }
 
 }
