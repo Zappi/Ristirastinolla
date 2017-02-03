@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ristirastinolla.UI;
+package ristirastinolla.ui;
 
+import ristirastinolla.ui.UI;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;

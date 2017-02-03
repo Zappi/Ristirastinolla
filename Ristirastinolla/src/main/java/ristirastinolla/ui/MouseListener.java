@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ristirastinolla.UI;
+package ristirastinolla.ui;
 
 import java.awt.event.MouseEvent;
 
+public class MouseListener implements java.awt.event.MouseListener {
 
-public class MouseListener implements java.awt.event.MouseListener{
-    
-    
     //TODO
-
     @Override
     public void mouseClicked(MouseEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -1,6 +1,6 @@
 package ristirastinolla.logic;
 
-import ristirastinolla.UI.UI;
+import ristirastinolla.ui.UI;
 
 public class Game {
 
@@ -11,10 +11,11 @@ public class Game {
     private int x;
     private int y;
 
-    public Game(int x, int y) {
+    public Game(int x, int y, Board board) {
         this.x = x;
         this.y = y;
-        this.board = new Board(x, y);
+        this.board = board;
+        board.setBoard();
         this.gameOver = false;
         this.ui = new UI();
         ui.startUI();
@@ -22,26 +23,24 @@ public class Game {
     }
 
     public void startGame() {
-        board.setBoard();
-        
 
         board.printBoard();
         while (!gameOver) {
-            
+
             player = 'X';
             playerSelectMoves(player); //These two method calls asks from UI where the player wants to put his mark. 
-            
-            if(gameOver == true) {
+
+            if (gameOver == true) {
                 break;
             }
-            
+
             player = 'O';
             playerSelectMoves(player);
         }
-        
+
         System.out.println("");
         System.out.println("Player " + player + " wins!");
-        
+
         System.out.println("");
         System.out.println("Game over");
     }
@@ -55,10 +54,10 @@ public class Game {
             col = ui.selectCol(player);
         }
         board.updateTable(player, row, col);
-         if(hasWon(player)) {
-                gameOver = true;
-                return;
-            }
+        if (hasWon(player)) {
+            gameOver = true;
+            return;
+        }
         board.printBoard();
     }
 
@@ -71,40 +70,40 @@ public class Game {
             System.out.println("Unvalid column");
             return true;
         }
-        if(board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
+        if (board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
             System.out.println("This place has already been taken.");
             return true;
         }
-        
+
         return false;
     }
-    
+
     public boolean hasWon(char player) {
-        return (rowHasWon() ||colHasWon() ||diagonalHasWon());
+        return (rowHasWon() || colHasWon() || diagonalHasWon());
     }
-    
+
     public boolean rowHasWon() {
         if (board.checkIfRowWin()) {
             gameOver = true;
             return true;
         }
+
         return false;
     }
-    
+
     public boolean colHasWon() {
-       if (board.checkIfColWin()) {
+        if (board.checkIfColWin()) {
             gameOver = true;
             return true;
         }
         return false;
     }
-    
+
     public boolean diagonalHasWon() {
-         if (board.checkIfDiagonalWin()) {
+        if (board.checkIfDiagonalWin()) {
             gameOver = true;
             return true;
         }
         return false;
     }
 }
-

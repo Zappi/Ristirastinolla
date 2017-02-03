@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ristirastinolla.UI;
+package ristirastinolla.ui;
 
 import java.util.Scanner;
 import ristirastinolla.logic.Game;
@@ -11,7 +11,7 @@ import ristirastinolla.logic.Game;
 public class UI {
 
     private Scanner reader;
-    
+
     public UI() {
 
         this.reader = new Scanner(System.in);
