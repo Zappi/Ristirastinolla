@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 27.1.2017 | 2h | Suunnittelua, luokkakaavion ja hahmotelman tekeminen 
 30.1.2017 | 2h | Käyttöliittymä eriytetty logiikasta, peliä koodattu niin, että nyt jompikumpi voittaa saatuaan kolmen suoran, jätetty vielä kasa virhetilanteita ratkaistavaksi. 
 31.1.2017 | 2h| Logiikkaa paranneltu niin, että pelin voi pelata nyt alusta loppuun tekstikäyttöliittymässä. Lisätty myös luokkia graafista käyttöliittymää varten.
+3.2.2017 | 3h | Paranneltu käyttöliittymää, tehty runsaasti uusia testejä, generoitu pit- ja checkstyle testit.
