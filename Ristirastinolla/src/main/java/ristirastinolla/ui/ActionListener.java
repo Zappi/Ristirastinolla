@@ -7,7 +7,7 @@ package ristirastinolla.ui;
 
 import java.awt.event.MouseEvent;
 
-public class MouseListener implements java.awt.event.MouseListener {
+public class ActionListener implements java.awt.event.MouseListener {
 
     //TODO
     @Override
