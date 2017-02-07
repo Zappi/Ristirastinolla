@@ -17,7 +17,7 @@ public class Board {
             }
         }
     }
-
+    //This metod will be deleted
     public void printBoard() {
         for (int row = 0; row < this.board.length; row++) {
             System.out.println("");

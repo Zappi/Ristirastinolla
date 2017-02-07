@@ -24,7 +24,7 @@ public class Game {
 
     public void startGame() {
 
-        board.printBoard();
+        //board.printBoard();
         while (!gameOver) {
 
             player = 'X';

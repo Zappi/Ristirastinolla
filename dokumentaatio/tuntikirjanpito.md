@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 31.1.2017 | 2h| Logiikkaa paranneltu niin, että pelin voi pelata nyt alusta loppuun tekstikäyttöliittymässä. Lisätty myös luokkia graafista käyttöliittymää varten.
 3.2.2017 | 3h | Paranneltu käyttöliittymää, tehty runsaasti uusia testejä, generoitu pit- ja checkstyle testit.
 6.2.2017 | 3h | Aloitettu graafisen käyttöliittymän tekeminen. 
+7.2.2017 | 2h | Käyttöliittymän tekeminen ja yritetty miettiä miten logiikan saisi toimimaan siinä
