@@ -25,11 +25,9 @@ public class GUI extends JFrame implements Runnable {
     public void run() {
 
         field = new DrawField(game);
-        field.setPreferredSize(new Dimension(800, 500));
+        field.setPreferredSize(new Dimension(500, 500));
         
-        
-        field.addMouseListener(new ClickListener(game, field, this));
-        
+           
         gameStatusBar = new JLabel("Test test");
         gameStatusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
         restartButton = new JButton("RESTART");
@@ -41,6 +39,8 @@ public class GUI extends JFrame implements Runnable {
         container.add(restartButton, BorderLayout.SOUTH);
         container.add(gameStatusBar, BorderLayout.NORTH);
         
+        
+        field.addMouseListener(new ClickListener(game, field, this));
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
