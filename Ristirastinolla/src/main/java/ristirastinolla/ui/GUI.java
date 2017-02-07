@@ -13,18 +13,23 @@ public class GUI extends JFrame implements Runnable {
     private JLabel gameStatusBar;
     private DrawField field;
     private JButton restartButton;
-
+    //CREATE GAME AND Board
     public GUI() {
+       
+       this.board = new Board(3, 3);
+       this.game = new Game(3, 3, board);
+        
     }
 
     @Override
     public void run() {
 
-        field = new DrawField();
-        field.setPreferredSize(new Dimension(500, 500));
+        field = new DrawField(game);
+        field.setPreferredSize(new Dimension(800, 500));
         
-        repaint(); //TODO
-
+        
+        field.addMouseListener(new ClickListener(game, field, this));
+        
         gameStatusBar = new JLabel("Test test");
         gameStatusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
         restartButton = new JButton("RESTART");
@@ -38,13 +43,11 @@ public class GUI extends JFrame implements Runnable {
         
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         pack();
         setTitle("Ristirastinolla");
         setVisible(true);
         setResizable(false);
-        
-        new Game(3, 3, new Board(3, 3));
-
     }
 
     private void createComponents(Container container) {
