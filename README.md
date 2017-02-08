@@ -8,5 +8,5 @@ Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaa
 
 [pit-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/pit-raportti/201702081943/index.html)
 
-[checkstyle-raportti](https://htmlpreview.github.io/https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/checkstyle-raportti/Viikko%204/site/checkstyle.html)
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/checkstyle-raportti/Viikko%204/site/checkstyle.html)
 
