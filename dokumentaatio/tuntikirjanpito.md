@@ -10,3 +10,4 @@ Päivä | Tunnit | Kuvaus
 3.2.2017 | 3h | Paranneltu käyttöliittymää, tehty runsaasti uusia testejä, generoitu pit- ja checkstyle testit.
 6.2.2017 | 3h | Aloitettu graafisen käyttöliittymän tekeminen. 
 7.2.2017 | 5h | Käyttöliittymän tekeminen, klikkauskuuntelijan tekeminen  ja yritetty miettiä miten logiikan saisi toimimaan siinä
+8.2.2017 | 2h | Koodia siistitty, tehty tarvittavat raportit ja uusi luokkakaavio

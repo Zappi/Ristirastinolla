@@ -1,3 +1,6 @@
+/**
+ *This class does the clicking functions for the game. When the board is clicked by mouse it does what it has to.
+ */
 package ristirastinolla.ui;
 
 import graphics.DrawField;
@@ -31,14 +34,14 @@ public class ClickListener implements MouseListener {
         if (!game.getGameStatus()) {
             if (selectedRow >= 0 && selectedRow < 3 && selectedCol >= 0 && selectedCol < 3 && game.valid(selectedRow, selectedCol)) {
                 game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
-              //PELAAJAN PITÄÄ VAIHTUA JOSSAIN TÄSSÄ KOHTAA TODO!!!!!!!
+                //PELAAJAN PITÄÄ VAIHTUA JOSSAIN TÄSSÄ KOHTAA TODO!!!!!!!
             }
 
         } else {
-            
+            System.out.println("TODo"); // this is just for the checkstyle
         }
         gui.repaint();
-        System.out.println("Onnistuux selectedCol " + selectedCol + " selectedROw " + selectedRow);
+        System.out.println("selectedRow " + selectedRow + " selectedCol " + selectedCol);
     }
 
     @Override

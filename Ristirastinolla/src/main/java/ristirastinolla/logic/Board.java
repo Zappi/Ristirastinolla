@@ -1,3 +1,6 @@
+/**
+ *This class takes care of the basic logic of the game.
+ */
 package ristirastinolla.logic;
 
 public class Board {
@@ -17,6 +20,7 @@ public class Board {
             }
         }
     }
+
     //This metod will be deleted
     public void printBoard() {
         for (int row = 0; row < this.board.length; row++) {
@@ -34,6 +38,14 @@ public class Board {
         }
     }
 
+    /**
+     * This method updates the game table and adds players chosen position on
+     * the table.
+     *
+     * @param player the player whose turn it is
+     * @param row given x-position
+     * @param col given y-position
+     */
     public void updateTable(char player, int row, int col) {
         board[row][col] = player;
     }

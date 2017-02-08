@@ -3,14 +3,11 @@
  */
 package ristirastinolla.logic;
 
-import ristirastinolla.ui.UI;
-
 public class Game {
 
     private boolean gameOver;
     private char player = 'X';
     private Board board;
-    private UI ui;
     private int x;
     private int y;
 
@@ -20,8 +17,6 @@ public class Game {
         this.board = board;
         board.setBoard();
         this.gameOver = false;
-        this.ui = new UI();
-        ui.startUI();
 
     }
 //
@@ -55,15 +50,10 @@ public class Game {
      * @param y tell's the selected y-position
      *
      */
-
     public void playerSelectMoves(char player, int x, int y) { //This method will check the final selection wheter the mark can be placed on the exact place.
         int row = x;
         int col = y;
-        while (valid(row, col)) {
-            //playerSelectMoves(player);
-            row = ui.selectRow(player);
-            col = ui.selectCol(player);
-        }
+
         board.updateTable(player, row, col);
         if (hasWon(player)) {
             gameOver = true;
@@ -98,6 +88,7 @@ public class Game {
 
     /**
      * Checks if either one of the players has won
+     *
      * @param player checks if either one of the players has won the game by
      * calling certain other methods
      * @return true if the given param player has won, in any other cases it
@@ -106,11 +97,12 @@ public class Game {
     public boolean hasWon(char player) {
         return (rowHasWon() || colHasWon() || diagonalHasWon());
     }
+
     /**
      * This method checks if any row line has won
+     *
      * @return true if game has won and false if not
      */
-    
     public boolean rowHasWon() {
         if (board.checkIfRowWin()) {
             gameOver = true;
@@ -119,12 +111,12 @@ public class Game {
 
         return false;
     }
-    
+
     /**
      * This method checks if any col line has won
+     *
      * @return true if game has won and false if not
      */
-    
     public boolean colHasWon() {
         if (board.checkIfColWin()) {
             gameOver = true;
@@ -132,12 +124,12 @@ public class Game {
         }
         return false;
     }
-    
+
     /**
      * This method checks if any diagonal line has won
+     *
      * @return true if game has won and false if not
      */
-
     public boolean diagonalHasWon() {
         if (board.checkIfDiagonalWin()) {
             gameOver = true;
@@ -145,21 +137,21 @@ public class Game {
         }
         return false;
     }
-    
+
     /**
      * This method only returns the player whose turn it is at the moment
+     *
      * @return return either X or O
      */
-
     public char returnPlayer() {
         return player;
     }
-    
+
     /**
      * This method retruns if the game has been on or not
+     *
      * @return true if either of player has won and false if not
      */
-
     public boolean getGameStatus() {
         return gameOver;
     }
