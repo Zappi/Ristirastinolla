@@ -6,9 +6,9 @@ Toteutukseen aiheena on perinteinen ristinolla -peli. Pelistä luodaan ensin log
 
 Peli on tarkoitettu kahdelle hengelle pelattavaksi. Alustavana suunnitelmana on totetutaa pelille myös tekoäly joka mahdollistaisi yksinpelin, ja laajennettavan kentän ominaisuus. Tällöin projektissa pitää keksiä myös tapa, jolla määritellään voittoon vaadittavia ominaisuuksia. Tekoälyyn en tule tekemään vaikeustaso-ominaisuutta. 
 
-**Käyttäjät:** Pelaaja 1 ja mahdollinen pelaaja 2
+**Käyttäjät:** Pelaajat 1 ja 2, sekä mahdollinen kevyt tekoäly
 
-**Käyttäjien toiminnot:** Pelaaja aloittaa pelin päävalikosta. Pelin pelaaminen tapahtuu klikkaamalla hiirellä pelikenttää ja valitsemalla haluamansa ruudut. 
+**Käyttäjien toiminnot:** Pelaaja aloittaa pelin päävalikosta. Pelin pelaaminen tapahtuu klikkaamalla hiirellä pelikenttää ja valitsemalla haluamansa ruudut. Pelin päätyttyä pelin voi aloittaa nappia painamalla uudelleen.
 
 **Määrittelyvaiheen luokkakaavio**
 
