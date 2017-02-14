@@ -1,8 +1,9 @@
-/**
- *This is the game's engine which takes care all of the important functions of the game.
- */
 package ristirastinolla.logic;
 
+/**
+ * This is the game's engine which takes care all of the important functions of
+ * the game.
+ */
 public class Game {
 
     private boolean gameOver;
@@ -10,7 +11,6 @@ public class Game {
     private Board board;
     private int x;
     private int y;
-    
 
     public Game(int x, int y, Board board) {
         this.x = x;
@@ -21,7 +21,8 @@ public class Game {
     }
 
     /**
-     * This metods does the actual move for the player and also checks if either one of the player has won or if the board is full
+     * This metods does the actual move for the player and also checks if either
+     * one of the player has won or if the board is full
      *
      * @param player tell's which players turn,
      * @param x tell's the selected x-position
@@ -31,13 +32,11 @@ public class Game {
     public void playerSelectMoves(char player, int x, int y) { //This method will check the final selection wheter the mark can be placed on the exact place.
         int row = x;
         int col = y;
-        
-        
+
         board.updateTable(player, row, col);
-        
-        if (hasWon(player) ||boardIsFull()) {
+
+        if (hasWon(player)) {
             gameOver = true;
-            return;
         }
     }
 
@@ -92,6 +91,15 @@ public class Game {
     }
 
     /**
+     * This method retruns if the game has been on or not
+     *
+     * @return true if either of player has won and false if not
+     */
+    public boolean getGameStatus() {
+        return gameOver;
+    }
+
+    /**
      * This method checks if any col line has won
      *
      * @return true if game has won and false if not
@@ -126,35 +134,29 @@ public class Game {
         return player;
     }
 
-    /**
-     * This method retruns if the game has been on or not
-     *
-     * @return true if either of player has won and false if not
-     */
-    public boolean getGameStatus() {
-        return gameOver;
-    }
-    
     public void nextTurn() {
-        if(player=='X') {
-            player ='O';
-        } else if(player=='O'){
+        if (player == 'X') {
+            player = 'O';
+        } else if (player == 'O') {
             player = 'X';
         }
     }
-    
+
     public void makeBoardEmpty() {
         board.setBoard();
     }
-    
+
     public boolean boardIsFull() {
-        return board.boardIsFull();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (!board.checkIfSpotIsAlreadyTaken(i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
-    
-    public void returnFinalResult() {
-        
-    }
-    
+
     public void changeGameOverFalse() {
         gameOver = false;
     }

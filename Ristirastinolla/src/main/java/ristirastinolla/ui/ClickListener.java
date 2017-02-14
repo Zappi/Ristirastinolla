@@ -33,19 +33,17 @@ public class ClickListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
+        System.out.println(game.getGameStatus());
+        System.out.println(game.boardIsFull());
 
-        if(game.boardIsFull()) {
-            boardIsFull = true;
-        }
-        
         int mouseX = mouseEvent.getX();
         int mouseY = mouseEvent.getY();
 
         int selectedRow = mouseX / 166;
         int selectedCol = mouseY / 166;
 
-        if (!game.getGameStatus()) {
-            if (validClick(selectedRow, selectedCol)) { // && game.valid(selectedRow, selectedCol) not working
+        if (!game.getGameStatus() && !game.boardIsFull()) {
+            if (validClick(selectedRow, selectedCol)) {
                 game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
                 game.nextTurn();
                 gameBar.setText(game.returnPlayer() + "'s turn");
@@ -53,14 +51,19 @@ public class ClickListener implements MouseListener {
                 gameBar.setText("Unvalid slot");
                 return;
             }
+
         } else {
-            System.out.println("TODo"); // this is just for the checkstyle
-            System.out.println("Game over, player " + game.returnPlayer() + " has won");
-            //if(restartButton.getModel().isSelected()) {
-            game.makeBoardEmpty();
-            boardIsFull = false;
-            //}
+            if (game.getGameStatus()) {
+                game.nextTurn();
+                gameBar.setText("Game over, player " + game.returnPlayer() + " has won");
+            } else {
+                gameBar.setText("Game over, Draw!");
+                boardIsFull = false;
+            } //if(restartButton.getModel().isSelected()) {
+
             game.changeGameOverFalse();
+            game.makeBoardEmpty();
+            game.nextTurn();
         }
         gui.repaint();
     }
