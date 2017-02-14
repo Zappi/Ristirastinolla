@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
 
@@ -16,32 +18,58 @@ public class ClickListener implements MouseListener {
     private Game game;
     private GUI gui;
     private DrawField field;
+    private JButton restartButton;
+    private JLabel gameBar;
+    private boolean boardIsFull;
 
-    public ClickListener(Game game, DrawField field, GUI gui) {
+    public ClickListener(Game game, DrawField field, GUI gui, JButton restartButton, JLabel gameBar) {
         this.game = game;
         this.field = field;
         this.gui = gui;
+        this.restartButton = restartButton;
+        this.gameBar = gameBar;
+        this.boardIsFull = false;
     }
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
+
+        if(game.boardIsFull()) {
+            boardIsFull = true;
+        }
+        
         int mouseX = mouseEvent.getX();
         int mouseY = mouseEvent.getY();
 
-        int selectedCol = mouseX / 166;
-        int selectedRow = mouseY / 166;
+        int selectedRow = mouseX / 166;
+        int selectedCol = mouseY / 166;
 
         if (!game.getGameStatus()) {
-            if (selectedRow >= 0 && selectedRow < 3 && selectedCol >= 0 && selectedCol < 3) { // && game.valid(selectedRow, selectedCol) not working
-                game.playerSelectMoves(game.returnPlayer(), selectedCol, selectedRow);
+            if (validClick(selectedRow, selectedCol)) { // && game.valid(selectedRow, selectedCol) not working
+                game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
                 game.nextTurn();
+                gameBar.setText(game.returnPlayer() + "'s turn");
+            } else {
+                gameBar.setText("Unvalid slot");
+                return;
             }
         } else {
             System.out.println("TODo"); // this is just for the checkstyle
             System.out.println("Game over, player " + game.returnPlayer() + " has won");
-            //Restart game, board is full or won
+            //if(restartButton.getModel().isSelected()) {
+            game.makeBoardEmpty();
+            boardIsFull = false;
+            //}
+            game.changeGameOverFalse();
         }
         gui.repaint();
+    }
+
+    private boolean validClick(int row, int col) {
+        if (game.valid(row, col)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

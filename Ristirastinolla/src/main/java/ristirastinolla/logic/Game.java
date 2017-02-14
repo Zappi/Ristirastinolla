@@ -10,6 +10,7 @@ public class Game {
     private Board board;
     private int x;
     private int y;
+    
 
     public Game(int x, int y, Board board) {
         this.x = x;
@@ -18,31 +19,9 @@ public class Game {
         board.setBoard();
         this.gameOver = false;
     }
-//
-//    public void startGame() {
-//
-//        while (!gameOver) {
-//
-//            player = 'X';
-//            playerSelectMoves(player); //These two method calls asks from UI where the player wants to put his mark. 
-//
-//            if (gameOver == true) {
-//                break;
-//            }
-//
-//            player = 'O';
-//            playerSelectMoves(player);
-//        }
-//
-////        System.out.println("");
-////        System.out.println("Player " + player + " wins!");
-////
-////        System.out.println("");
-////        System.out.println("Game over");
-//    }
 
     /**
-     * This metods does the actual move for the player
+     * This metods does the actual move for the player and also checks if either one of the player has won or if the board is full
      *
      * @param player tell's which players turn,
      * @param x tell's the selected x-position
@@ -52,13 +31,14 @@ public class Game {
     public void playerSelectMoves(char player, int x, int y) { //This method will check the final selection wheter the mark can be placed on the exact place.
         int row = x;
         int col = y;
-
+        
+        
         board.updateTable(player, row, col);
-        if (hasWon(player)) {
+        
+        if (hasWon(player) ||boardIsFull()) {
             gameOver = true;
             return;
         }
-        //board.printBoard();
     }
 
     /**
@@ -70,15 +50,15 @@ public class Game {
      */
     public boolean valid(int row, int col) {  //This method checks if the selected coordinates are appropriate and returns true if they are not. 
         if (row > x - 1 || row < 0) {
-//            System.out.println("Unvalid row");
+            System.out.println("Unvalid row");
             return true;
         }
         if (col > y - 1 || col < 0) {
-//            System.out.println("Unvalid column");
+            System.out.println("Unvalid column");
             return true;
         }
         if (board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
-//            System.out.println("This place has already been taken.");
+            System.out.println("This place has already been taken.");
             return true;
         }
 
@@ -161,6 +141,22 @@ public class Game {
         } else if(player=='O'){
             player = 'X';
         }
+    }
+    
+    public void makeBoardEmpty() {
+        board.setBoard();
+    }
+    
+    public boolean boardIsFull() {
+        return board.boardIsFull();
+    }
+    
+    public void returnFinalResult() {
+        
+    }
+    
+    public void changeGameOverFalse() {
+        gameOver = false;
     }
 
 }
