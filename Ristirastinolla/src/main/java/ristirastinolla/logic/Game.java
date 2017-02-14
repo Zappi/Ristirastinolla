@@ -17,7 +17,6 @@ public class Game {
         this.board = board;
         board.setBoard();
         this.gameOver = false;
-
     }
 //
 //    public void startGame() {
@@ -154,6 +153,14 @@ public class Game {
      */
     public boolean getGameStatus() {
         return gameOver;
+    }
+    
+    public void nextTurn() {
+        if(player=='X') {
+            player ='O';
+        } else if(player=='O'){
+            player = 'X';
+        }
     }
 
 }

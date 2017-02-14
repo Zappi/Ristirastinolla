@@ -3,7 +3,7 @@
  */
 package ristirastinolla.ui;
 
-import graphics.DrawField;
+import ristirastinolla.graphics.DrawField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -32,16 +32,16 @@ public class ClickListener implements MouseListener {
         int selectedRow = mouseY / 166;
 
         if (!game.getGameStatus()) {
-            if (selectedRow >= 0 && selectedRow < 3 && selectedCol >= 0 && selectedCol < 3 && game.valid(selectedRow, selectedCol)) {
-                game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
-                //PELAAJAN PITÄÄ VAIHTUA JOSSAIN TÄSSÄ KOHTAA TODO!!!!!!!
+            if (selectedRow >= 0 && selectedRow < 3 && selectedCol >= 0 && selectedCol < 3) { // && game.valid(selectedRow, selectedCol) not working
+                game.playerSelectMoves(game.returnPlayer(), selectedCol, selectedRow);
+                game.nextTurn();
             }
-
         } else {
             System.out.println("TODo"); // this is just for the checkstyle
+            System.out.println("Game over, player " + game.returnPlayer() + " has won");
+            //Restart game, board is full or won
         }
         gui.repaint();
-        System.out.println("selectedRow " + selectedRow + " selectedCol " + selectedCol);
     }
 
     @Override

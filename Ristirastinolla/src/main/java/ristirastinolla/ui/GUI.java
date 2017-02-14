@@ -3,7 +3,7 @@
  */
 package ristirastinolla.ui;
 
-import graphics.DrawField;
+import ristirastinolla.graphics.DrawField;
 import java.awt.*;
 import javax.swing.*;
 import ristirastinolla.logic.Board;
@@ -31,7 +31,7 @@ public class GUI extends JFrame implements Runnable {
     @Override
     public void run() {
 
-        field = new DrawField(game);
+        field = new DrawField(game, board);
         field.setPreferredSize(new Dimension(500, 500));
 
         gameStatusBar = new JLabel("Test test");
