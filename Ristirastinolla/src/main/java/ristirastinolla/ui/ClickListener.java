@@ -52,19 +52,21 @@ public class ClickListener implements MouseListener {
                 return;
             }
 
-        } else {
-            if (game.getGameStatus()) {
-                game.nextTurn();
-                gameBar.setText("Game over, player " + game.returnPlayer() + " has won");
-            } else {
+        }
+        if(game.boardIsFull() ||game.hasWon('X') ||game.hasWon('O')) {
+            if (game.boardIsFull() &&!game.hasWon('X') ||!game.hasWon('O')) {
                 gameBar.setText("Game over, Draw!");
                 boardIsFull = false;
+            } else {
+                game.nextTurn();
+                gameBar.setText("Game over, player " + game.returnPlayer() + " has won");
             } //if(restartButton.getModel().isSelected()) {
 
             game.changeGameOverFalse();
             game.makeBoardEmpty();
             game.nextTurn();
-        }
+    }
+        
         gui.repaint();
     }
 
