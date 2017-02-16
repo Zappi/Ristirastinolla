@@ -20,15 +20,17 @@ public class RestartbuttonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == restartButton) {
+        if (game.getGameStatus() || game.boardIsFull()) {
 
-            game.changeGameOverFalse();
-            game.makeBoardEmpty();
-            game.nextTurn();
-            
-            gui.repaint();
+            if (e.getSource() == restartButton) {
+
+                game.changeGameOverFalse();
+                game.makeBoardEmpty();
+                game.nextTurn();
+
+                gui.repaint();
+            }
         }
-
     }
 
 }
