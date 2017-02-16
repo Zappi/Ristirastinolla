@@ -10,6 +10,13 @@ Peli on tarkoitettu kahdelle hengelle pelattavaksi. Alustavana suunnitelmana on 
 
 **Käyttäjien toiminnot:** Pelaaja aloittaa pelin päävalikosta. Pelin pelaaminen tapahtuu klikkaamalla hiirellä pelikenttää ja valitsemalla haluamansa ruudut. Pelin päätyttyä pelin voi aloittaa nappia painamalla uudelleen.
 
-**Määrittelyvaiheen luokkakaavio**
+**Luokkakaavio**
 
-![luokkakaavio](/dokumentaatio/Javalabra1luokkakaavio.png)
+![luokkakaavio](/dokumentaatio/uusiLuokkakaavio.png)
+
+**Sekvenssikaaviot**
+
+Sekvenssikaavio tapaukselle, jossa pelikenttää klikkaamalla kentälle tulee pelaajan pelimerkki
+![Sekvenssikaavio1](/dokumentaatio/sekvenssikaaviolisays.png)
+Sekvenssikaavio tapaukselle, jossa toinen pelaajista voittaa valinnallaan pelin
+![Sekvenssikaavio2](/dokumentaatio/sekvenssikaaviovoitto.png) 
