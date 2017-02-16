@@ -19,7 +19,7 @@ public class DrawBoard extends JPanel {
     public final int cellSize = 166;
     public final int fieldWidth = cellSize * cols;
     public final int fieldHeight = cellSize * rows;
-    private final Game game;
+    //private final Game game;
     private Board board;
 
     /**
@@ -27,8 +27,8 @@ public class DrawBoard extends JPanel {
      * @param game
      * @param board
      */
-    public DrawBoard(Game game, Board board) {
-        this.game = game;
+    public DrawBoard(Board board) {
+       // this.game = game;
         this.board = board;
     }
 

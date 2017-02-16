@@ -64,7 +64,7 @@ public class ClickListener implements MouseListener {
             } else {
                 game.nextTurn();
                 gameBar.setText("Game over, player " + game.returnPlayer() + " has won. Press restart to play again.");
-            } //if(restartButton.getModel().isSelected()) {
+            } 
         }
 
         gui.repaint();

@@ -31,7 +31,7 @@ public class GUI extends JFrame implements Runnable {
     @Override
     public void run() {
 
-        field = new DrawBoard(game, board);
+        field = new DrawBoard(board);
         field.setPreferredSize(new Dimension(500, 500));
 
         gameStatusBar = new JLabel(game.returnPlayer() + "'s turn");
