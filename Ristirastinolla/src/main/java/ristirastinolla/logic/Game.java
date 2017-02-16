@@ -55,16 +55,16 @@ public class Game {
      */
     public boolean valid(int row, int col) {  //This method checks if the selected coordinates are appropriate and returns true if they are not. 
         if (row > x - 1 || row < 0) {
-            return true;
+            return false;
         }
         if (col > y - 1 || col < 0) {
-            return true;
+            return false;
         }
         if (board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     /**
@@ -149,14 +149,17 @@ public class Game {
     }
 
     /**
-     * This method will clear the board for the next round. 
+     * This method will clear the board for the next round.
      */
     public void makeBoardEmpty() {
         board.setBoard();
     }
 
     /**
-     * This method does the check for the game if the whole board is full, because we have to know it in the situation when the board is full and it's draw.
+     * This method does the check for the game if the whole board is full,
+     * because we have to know it in the situation when the board is full and
+     * it's draw.
+     *
      * @return true if the board is full and false if there is still free spots.
      */
     public boolean boardIsFull() {
@@ -171,23 +174,11 @@ public class Game {
     }
 
     /**
-     * When one round is over and it is time to start a new round this method will change the game playable again
+     * When one round is over and it is time to start a new round this method
+     * will change the game playable again
      */
     public void changeGameOverFalse() {
         gameOver = false;
-    }
-
-    /**
-     * Checks if a click is at the right spot on the field
-     * @param row clicks x-spot
-     * @param col clicks y-spot
-     * @return true if the click is not valid and false if it is valid
-     */
-    public boolean validClick(int row, int col) {
-        if (valid(row, col)) {
-            return false;
-        }
-        return true;
     }
 
 }

@@ -48,7 +48,7 @@ public class GUI extends JFrame implements Runnable {
 
         restartButton.addActionListener(new RestartbuttonListener(restartButton, game, this));
         field.addMouseListener(new ClickListener(game, field, this, gameStatusBar));
-        
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setTitle("Ristirastinolla");
@@ -56,7 +56,9 @@ public class GUI extends JFrame implements Runnable {
         setResizable(false);
     }
 
-    //
+    /**
+     * This method creates main components
+     */
     private void createComponents(Container container) {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));

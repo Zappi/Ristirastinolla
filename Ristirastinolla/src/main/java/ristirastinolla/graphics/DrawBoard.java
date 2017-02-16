@@ -1,6 +1,3 @@
-/**
- *This class draws the game field and it also draws the X's and O's for the game.
- */
 package ristirastinolla.graphics;
 
 import java.awt.BasicStroke;
@@ -11,6 +8,10 @@ import javax.swing.JPanel;
 import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
 
+/**
+ * This class draws the game field and it also draws the X's and O's for the game.
+ * 
+ */
 public class DrawBoard extends JPanel {
 
     public final int rows = 3;
@@ -21,6 +22,11 @@ public class DrawBoard extends JPanel {
     private final Game game;
     private Board board;
 
+    /**
+     *
+     * @param game
+     * @param board
+     */
     public DrawBoard(Game game, Board board) {
         this.game = game;
         this.board = board;

@@ -13,6 +13,10 @@ import javax.swing.JLabel;
 import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
 
+/**
+ *
+ * @author jtamland
+ */
 public class ClickListener implements MouseListener {
 
     private Game game;
@@ -20,7 +24,14 @@ public class ClickListener implements MouseListener {
     private DrawBoard field;
     private JLabel gameBar;
 
-    public ClickListener(Game game, DrawBoard field, GUI gui,JLabel gameBar) {
+    /**
+     *
+     * @param game
+     * @param field
+     * @param gui
+     * @param gameBar
+     */
+    public ClickListener(Game game, DrawBoard field, GUI gui, JLabel gameBar) {
         this.game = game;
         this.field = field;
         this.gui = gui;
@@ -30,9 +41,6 @@ public class ClickListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
-        System.out.println(game.getGameStatus());
-        System.out.println(game.boardIsFull());
-
         int mouseX = mouseEvent.getX();
         int mouseY = mouseEvent.getY();
 
@@ -40,7 +48,7 @@ public class ClickListener implements MouseListener {
         int selectedCol = mouseY / 166;
 
         if (!game.getGameStatus() && !game.boardIsFull()) {
-            if (game.validClick(selectedRow, selectedCol)) {
+            if (game.valid(selectedRow, selectedCol)) {
                 game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
                 game.nextTurn();
                 gameBar.setText(game.returnPlayer() + "'s turn");
@@ -61,7 +69,7 @@ public class ClickListener implements MouseListener {
 
         gui.repaint();
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

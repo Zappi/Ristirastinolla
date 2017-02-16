@@ -1,7 +1,7 @@
 package ristirastinolla.logic;
 
 /**
- *This class takes care of the basic logic of the game.
+ * This class takes care of the basic logic of the game.
  */
 public class Board {
 
@@ -19,7 +19,7 @@ public class Board {
     }
 
     /**
-     *This method creates a new blank board
+     * This method creates a new blank board
      */
     public void setBoard() {
         for (int row = 0; row < this.board.length; row++) {
@@ -28,6 +28,7 @@ public class Board {
             }
         }
     }
+
     /**
      * This method updates the game table and adds players chosen position on
      * the table.
@@ -58,6 +59,7 @@ public class Board {
 
     /**
      * This method checks if there is a winning line on any row line
+     *
      * @return true if we have found the winner
      */
     public boolean checkIfRowWin() {
@@ -71,6 +73,7 @@ public class Board {
 
     /**
      * This method checks if there is a winning line on any col line
+     *
      * @return true if we have found the winner
      */
     public boolean checkIfColWin() {
@@ -84,6 +87,7 @@ public class Board {
 
     /**
      * This method checks if there is a winning line on any diagonal line
+     *
      * @return true if we have found the winner
      */
     public boolean checkIfDiagonalWin() {
@@ -99,7 +103,9 @@ public class Board {
     }
 
     /**
-     * This method confirms that if we have found a possible winner we check that subsequents are the same
+     * This method confirms that if we have found a possible winner we check
+     * that subsequents are the same
+     *
      * @param a certain mark on the first location
      * @param b certain mark on the second location
      * @param c certain mark on the third location
@@ -111,9 +117,9 @@ public class Board {
 
     /**
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x location on x-axis
+     * @param y location on y-axis
+     * @return returns true if the given spot is already taken
      */
     public boolean checkIfSpotIsAlreadyTaken(int x, int y) {
         for (int row = 0; row < this.board.length; row++) {
@@ -128,10 +134,10 @@ public class Board {
 
     /**
      *
-     * @param a
-     * @param x
-     * @param y
-     * @return
+     * @param a tells which players turn it is
+     * @param x location on x-axis
+     * @param y location on y-axis
+     * @return true if asked location is selected for the player
      */
     public boolean returnPosition(char a, int x, int y) {
         for (int row = 0; row < this.board.length; row++) {
@@ -143,5 +149,5 @@ public class Board {
         }
         return false;
     }
-   
+
 }
