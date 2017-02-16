@@ -12,6 +12,12 @@ public class Game {
     private int x;
     private int y;
 
+    /**
+     *
+     * @param x size of the boards row
+     * @param y size of the boards col
+     * @param board game board
+     */
     public Game(int x, int y, Board board) {
         this.x = x;
         this.y = y;
@@ -49,15 +55,12 @@ public class Game {
      */
     public boolean valid(int row, int col) {  //This method checks if the selected coordinates are appropriate and returns true if they are not. 
         if (row > x - 1 || row < 0) {
-            System.out.println("Unvalid row");
             return true;
         }
         if (col > y - 1 || col < 0) {
-            System.out.println("Unvalid column");
             return true;
         }
         if (board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
-            System.out.println("This place has already been taken.");
             return true;
         }
 
@@ -134,6 +137,9 @@ public class Game {
         return player;
     }
 
+    /**
+     * This method will control turns during the game.
+     */
     public void nextTurn() {
         if (player == 'X') {
             player = 'O';
@@ -142,10 +148,17 @@ public class Game {
         }
     }
 
+    /**
+     * This method will clear the board for the next round. 
+     */
     public void makeBoardEmpty() {
         board.setBoard();
     }
 
+    /**
+     * This method does the check for the game if the whole board is full, because we have to know it in the situation when the board is full and it's draw.
+     * @return true if the board is full and false if there is still free spots.
+     */
     public boolean boardIsFull() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -157,8 +170,24 @@ public class Game {
         return true;
     }
 
+    /**
+     * When one round is over and it is time to start a new round this method will change the game playable again
+     */
     public void changeGameOverFalse() {
         gameOver = false;
+    }
+
+    /**
+     * Checks if a click is at the right spot on the field
+     * @param row clicks x-spot
+     * @param col clicks y-spot
+     * @return true if the click is not valid and false if it is valid
+     */
+    public boolean validClick(int row, int col) {
+        if (valid(row, col)) {
+            return false;
+        }
+        return true;
     }
 
 }

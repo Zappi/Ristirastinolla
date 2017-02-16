@@ -3,8 +3,9 @@
  */
 package ristirastinolla.ui;
 
-import ristirastinolla.graphics.DrawField;
+import ristirastinolla.graphics.DrawBoard;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
@@ -14,9 +15,9 @@ public class GUI extends JFrame implements Runnable {
     private Game game;
     private Board board;
     private JLabel gameStatusBar;
-    private DrawField field;
+    private DrawBoard field;
     private JButton restartButton;
-    
+
     public GUI() {
 
         this.board = new Board(3, 3);
@@ -30,12 +31,12 @@ public class GUI extends JFrame implements Runnable {
     @Override
     public void run() {
 
-        field = new DrawField(game, board);
+        field = new DrawBoard(game, board);
         field.setPreferredSize(new Dimension(500, 500));
-        
+
         gameStatusBar = new JLabel(game.returnPlayer() + "'s turn");
         gameStatusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
-        
+
         restartButton = new JButton("RESTART");
         restartButton.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -45,7 +46,8 @@ public class GUI extends JFrame implements Runnable {
         container.add(restartButton, BorderLayout.SOUTH);
         container.add(gameStatusBar, BorderLayout.NORTH);
 
-        field.addMouseListener(new ClickListener(game, field, this, restartButton, gameStatusBar));
+        restartButton.addActionListener(new RestartbuttonListener(restartButton, game, this));
+        field.addMouseListener(new ClickListener(game, field, this, gameStatusBar));
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();

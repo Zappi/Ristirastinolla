@@ -164,5 +164,49 @@ public class GameTest {
         board.updateTable('X', 1, 1);
         assertEquals(true, game.valid(1, 1));
     }
+    
+    @Test
+    public void nextPlayerFirstX() {
+        game.nextTurn();
+        assertEquals(game.returnPlayer(), 'O');
+        game.nextTurn();
+        assertEquals(game.returnPlayer(), 'X');
+    }
+    @Test
+    public void boardIsFull() {
+        game.playerSelectMoves('X', 0, 0);
+        game.playerSelectMoves('O', 2, 0);
+        game.playerSelectMoves('X', 1, 0);
+        game.playerSelectMoves('O', 0, 1);
+        game.playerSelectMoves('X', 1, 1);
+        game.playerSelectMoves('O', 2, 1);
+        game.playerSelectMoves('X', 2, 2);
+        game.playerSelectMoves('O', 1, 2);
+        game.playerSelectMoves('X', 0, 2);
+        
+        assertTrue(game.boardIsFull());
+    }
+    
+    @Test 
+    public void boardIsNotFull() {
+        game.playerSelectMoves('X', 0, 0);
+        assertFalse(game.boardIsFull());
+    }
+    
+    @Test
+    public void checkIfClickIsValid() {
+        assertFalse(game.valid(0, 0));
+    }
+    
+    @Test
+    public void checkIfClickXIsNotValid() {
+        assertTrue(game.valid(51, 0));
+    }
+    
+    @Test
+    public void checkIfClickYIsNotValid() {
+        assertTrue(game.valid(3,151251));
+    }
+    
 
 }

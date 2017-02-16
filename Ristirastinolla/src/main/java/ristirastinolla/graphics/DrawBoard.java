@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
 
-public class DrawField extends JPanel {
+public class DrawBoard extends JPanel {
 
     public final int rows = 3;
     public final int cols = 3;
@@ -21,7 +21,7 @@ public class DrawField extends JPanel {
     private final Game game;
     private Board board;
 
-    public DrawField(Game game, Board board) {
+    public DrawBoard(Game game, Board board) {
         this.game = game;
         this.board = board;
     }
