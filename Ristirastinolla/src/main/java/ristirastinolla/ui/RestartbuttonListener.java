@@ -5,12 +5,22 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import ristirastinolla.logic.Game;
 
+/**
+ * This is the ActionListener for the Restartbutton.
+ * @author jtamland
+ */
 public class RestartbuttonListener implements ActionListener {
 
     private JButton restartButton;
     private Game game;
     private GUI gui;
 
+    /**
+     * Conctructor.
+     * @param restartButton given JButton.
+     * @param game game.
+     * @param gui gui. 
+     */
     public RestartbuttonListener(JButton restartButton, Game game, GUI gui) {
 
         this.restartButton = restartButton;

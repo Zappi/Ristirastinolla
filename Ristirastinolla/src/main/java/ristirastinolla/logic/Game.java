@@ -13,7 +13,7 @@ public class Game {
     private int y;
 
     /**
-     *
+     * Constructor.
      * @param x size of the boards row
      * @param y size of the boards col
      * @param board game board
@@ -28,7 +28,7 @@ public class Game {
 
     /**
      * This metods does the actual move for the player and also checks if either
-     * one of the player has won or if the board is full
+     * one of the player has won or if the board is full.
      *
      * @param player tell's which players turn,
      * @param x tell's the selected x-position
@@ -47,7 +47,7 @@ public class Game {
     }
 
     /**
-     *
+     * Checks if the given position is valid.
      * @param row checks if the given row-value is correct on the gametable
      * @param col checks if the given co-value is correct on the gametable
      * @return true if selected positions are unvalid, false if selected
@@ -68,7 +68,7 @@ public class Game {
     }
 
     /**
-     * Checks if either one of the players has won
+     * Checks if either one of the players has won.
      *
      * @param player checks if either one of the players has won the game by
      * calling certain other methods
@@ -80,7 +80,7 @@ public class Game {
     }
 
     /**
-     * This method checks if any row line has won
+     * This method checks if any row line has won.
      *
      * @return true if game has won and false if not
      */
@@ -94,7 +94,7 @@ public class Game {
     }
 
     /**
-     * This method retruns if the game has been on or not
+     * This method retruns if the game has been on or not.
      *
      * @return true if either of player has won and false if not
      */
@@ -103,7 +103,7 @@ public class Game {
     }
 
     /**
-     * This method checks if any col line has won
+     * This method checks if any col line has won.
      *
      * @return true if game has won and false if not
      */
@@ -116,7 +116,7 @@ public class Game {
     }
 
     /**
-     * This method checks if any diagonal line has won
+     * This method checks if any diagonal line has won.
      *
      * @return true if game has won and false if not
      */
@@ -129,7 +129,7 @@ public class Game {
     }
 
     /**
-     * This method only returns the player whose turn it is at the moment
+     * This method only returns the player whose turn it is at the moment.
      *
      * @return return either X or O
      */
@@ -163,9 +163,9 @@ public class Game {
      * @return true if the board is full and false if there is still free spots.
      */
     public boolean boardIsFull() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (!board.checkIfSpotIsAlreadyTaken(i, j)) {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (!board.checkIfSpotIsAlreadyTaken(row, col)) {
                     return false;
                 }
             }
@@ -175,7 +175,7 @@ public class Game {
 
     /**
      * When one round is over and it is time to start a new round this method
-     * will change the game playable again
+     * will change the game playable again.
      */
     public void changeGameOverFalse() {
         gameOver = false;

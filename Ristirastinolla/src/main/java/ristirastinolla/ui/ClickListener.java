@@ -14,7 +14,7 @@ import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
 
 /**
- *
+ * This class handles the clicks on the board.
  * @author jtamland
  */
 public class ClickListener implements MouseListener {
@@ -25,11 +25,11 @@ public class ClickListener implements MouseListener {
     private JLabel gameBar;
 
     /**
-     *
-     * @param game
-     * @param field
-     * @param gui
-     * @param gameBar
+     * Constructor.
+     * @param game given game logic.
+     * @param field given field.
+     * @param gui given gui. 
+     * @param gameBar given textbar.
      */
     public ClickListener(Game game, DrawBoard field, GUI gui, JLabel gameBar) {
         this.game = game;
@@ -64,7 +64,7 @@ public class ClickListener implements MouseListener {
             } else {
                 game.nextTurn();
                 gameBar.setText("Game over, player " + game.returnPlayer() + " has won. Press restart to play again.");
-            } 
+            }
         }
 
         gui.repaint();

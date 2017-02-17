@@ -8,7 +8,7 @@ public class Board {
     private char[][] board;
 
     /**
-     *
+     * Constructor.
      * @param row row size of the board
      * @param col col size of the board.
      */
@@ -19,7 +19,7 @@ public class Board {
     }
 
     /**
-     * This method creates a new blank board
+     * This method creates a new blank board.
      */
     public void setBoard() {
         for (int row = 0; row < this.board.length; row++) {
@@ -42,7 +42,7 @@ public class Board {
     }
 
     /**
-     *
+     * Gives the size of the row.
      * @return size of the boards length
      */
     public int getRowSize() {
@@ -50,7 +50,7 @@ public class Board {
     }
 
     /**
-     *
+     * Gives the size of the column.
      * @return size of the boards column
      */
     public int getColumnSize() {
@@ -58,7 +58,7 @@ public class Board {
     }
 
     /**
-     * This method checks if there is a winning line on any row line
+     * This method checks if there is a winning line on any row line.
      *
      * @return true if we have found the winner
      */
@@ -72,7 +72,7 @@ public class Board {
     }
 
     /**
-     * This method checks if there is a winning line on any col line
+     * This method checks if there is a winning line on any col line.
      *
      * @return true if we have found the winner
      */
@@ -86,7 +86,7 @@ public class Board {
     }
 
     /**
-     * This method checks if there is a winning line on any diagonal line
+     * This method checks if there is a winning line on any diagonal line.
      *
      * @return true if we have found the winner
      */
@@ -104,7 +104,7 @@ public class Board {
 
     /**
      * This method confirms that if we have found a possible winner we check
-     * that subsequents are the same
+     * that subsequents are the same.
      *
      * @param a certain mark on the first location
      * @param b certain mark on the second location
@@ -116,7 +116,7 @@ public class Board {
     }
 
     /**
-     *
+     * Checks if the the given spot is already taken.
      * @param x location on x-axis
      * @param y location on y-axis
      * @return returns true if the given spot is already taken
@@ -133,7 +133,7 @@ public class Board {
     }
 
     /**
-     *
+     * Returns true if the spot is taken for either one of the players.
      * @param a tells which players turn it is
      * @param x location on x-axis
      * @param y location on y-axis

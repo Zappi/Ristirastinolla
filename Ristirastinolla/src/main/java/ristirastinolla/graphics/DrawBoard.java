@@ -6,11 +6,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import ristirastinolla.logic.Board;
-import ristirastinolla.logic.Game;
 
 /**
- * This class draws the game field and it also draws the X's and O's for the game.
- * 
+ * This class draws the game field and it also draws the X's and O's for the
+ * game.
+ *
  */
 public class DrawBoard extends JPanel {
 
@@ -19,16 +19,13 @@ public class DrawBoard extends JPanel {
     public final int cellSize = 166;
     public final int fieldWidth = cellSize * cols;
     public final int fieldHeight = cellSize * rows;
-    //private final Game game;
     private Board board;
 
     /**
-     *
-     * @param game
-     * @param board
+     * Draws the board.
+     * @param board given board
      */
     public DrawBoard(Board board) {
-       // this.game = game;
         this.board = board;
     }
 

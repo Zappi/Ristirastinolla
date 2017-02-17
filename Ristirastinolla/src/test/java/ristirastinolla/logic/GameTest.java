@@ -50,48 +50,48 @@ public class GameTest {
     }
 
     @Test
-    public void whenGivingUnvalidRowLessThanZeroReturnTrue() {
-        assertEquals(true, game.valid(-2, 0));
+    public void whenGivingUnvalidRowLessThanZeroReturnFalse() {
+        assertEquals(false, game.valid(-2, 0));
     }
     
     @Test
     public void giveValidRowValue() {
-        assertEquals(false, game.valid(2, 0));
+        assertEquals(true, game.valid(2, 0));
     }
 
     @Test
-    public void whenGivingUnvalidRowBiggerThanMaxRowReturnTrue() {
-        assertEquals(true, game.valid(1010, 0));
+    public void whenGivingUnvalidRowBiggerThanMaxRowReturnFalse() {
+        assertEquals(false, game.valid(1010, 0));
     }
 
     @Test
-    public void whenGivingUnvalidColLessThanZeroReturnTrue() {
-        assertTrue(game.valid(2, -4));
+    public void whenGivingUnvalidColLessThanZeroReturnFalse() {
+        assertFalse(game.valid(2, -4));
     }
  
     @Test
     public void giveValidColValue() {
-        assertEquals(false, game.valid(2, 2));
+        assertEquals(true, game.valid(2, 2));
     }
     
     @Test
     public void colAddition() {
-        assertEquals(true, game.valid(3, 1));
+        assertEquals(false, game.valid(3, 1));
     }
 
     @Test
-    public void whenGivingUnvalidColBiggerThanMAxRowReturnTrue() {
-        assertTrue(game.valid(2, 6));
+    public void whenGivingUnvalidColBiggerThanMAxRowReturnFalse() {
+        assertFalse(game.valid(2, 6));
     }
 
     @Test
-    public void whenGivingUnvalidColAndROwReturnTrue() {
-        assertTrue(game.valid(12412, -222));
+    public void whenGivingUnvalidColAndROwReturnFalse() {
+        assertFalse(game.valid(12412, -222));
     }
 
     @Test
-    public void whenGivingValidValuesColAndRowReturnFalse() {
-        assertFalse(game.valid(2, 2));
+    public void whenGivingValidValuesColAndRowReturnTrue() {
+        assertTrue(game.valid(2, 2));
     }
 
     @Test
@@ -162,7 +162,7 @@ public class GameTest {
     public void selectedPlaceIsAlreadyTaken() {
         board.updateTable('X', 0, 0);
         board.updateTable('X', 1, 1);
-        assertEquals(true, game.valid(1, 1));
+        assertEquals(false, game.valid(1, 1));
     }
     
     @Test
@@ -195,17 +195,17 @@ public class GameTest {
     
     @Test
     public void checkIfClickIsValid() {
-        assertFalse(game.valid(0, 0));
+        assertTrue(game.valid(0, 0));
     }
     
     @Test
     public void checkIfClickXIsNotValid() {
-        assertTrue(game.valid(51, 0));
+        assertFalse(game.valid(51, 0));
     }
     
     @Test
     public void checkIfClickYIsNotValid() {
-        assertTrue(game.valid(3,151251));
+        assertFalse(game.valid(3,151251));
     }
     
 
