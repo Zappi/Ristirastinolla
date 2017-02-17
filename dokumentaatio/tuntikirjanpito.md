@@ -12,4 +12,5 @@ Päivä | Tunnit | Kuvaus
 7.2.2017 | 5h | Käyttöliittymän tekeminen, klikkauskuuntelijan tekeminen  ja yritetty miettiä miten logiikan saisi toimimaan siinä
 8.2.2017 | 2h | Koodia siistitty, tehty tarvittavat raportit ja uusi luokkakaavio
 14.2.2017| 5h | Peli tehty toimivaksi, koodia siistitty
-16.2.2017| 2h | Lisätty uusia testejä, paranneltu pelin toiminnallisuutta
+16.2.2017| 4h | Lisätty uusia testejä, paranneltu pelin toiminnallisuutta
+17.2.2017| 2h | Korjattu luokkakaavioita, tehty pit ja checkstyle-testit
