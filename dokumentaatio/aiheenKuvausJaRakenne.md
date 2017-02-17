@@ -16,7 +16,7 @@ Peli on tarkoitettu kahdelle hengelle pelattavaksi. Alustavana suunnitelmana on 
 
 **Sekvenssikaaviot**
 
-Sekvenssikaavio tapaukselle, jossa pelikenttää klikkaamalla kentälle tulee pelaajan pelimerkki
-![Sekvenssikaavio1](/dokumentaatio/sekvenssikaaviolisays.png)
-Sekvenssikaavio tapaukselle, jossa toinen pelaajista voittaa valinnallaan pelin
-![Sekvenssikaavio2](/dokumentaatio/sekvenssikaaviovoitto.png) 
+Sekvenssikaavio tapaukselle, jossa toinen pelaajista voittaa pelin. Tapaus sisältää myös uuden merkin luomisen kentälle.
+![Sekvenssikaavio1](/dokumentaatio/sekvenssikaaviovoitto.png)
+Sekvenssikaavio tapaukselle, jossa kenttä tyhjennetään restart -nappia painamalla.
+![Sekvenssikaavio2](/dokumentaatio/sekvenssikaaviokentantyhjennys.png)
