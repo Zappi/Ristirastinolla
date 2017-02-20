@@ -5,7 +5,6 @@ package ristirastinolla.ui;
 
 import ristirastinolla.graphics.DrawBoard;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
@@ -17,11 +16,13 @@ public class GUI extends JFrame implements Runnable {
     private JLabel gameStatusBar;
     private DrawBoard field;
     private JButton restartButton;
+    private Sound sound;
 
     public GUI() {
 
         this.board = new Board(3, 3);
         this.game = new Game(3, 3, board);
+        this.sound = new Sound();
 
     }
 
@@ -47,7 +48,7 @@ public class GUI extends JFrame implements Runnable {
         container.add(gameStatusBar, BorderLayout.NORTH);
 
         restartButton.addActionListener(new RestartbuttonListener(restartButton, game, this));
-        field.addMouseListener(new ClickListener(game, field, this, gameStatusBar));
+        field.addMouseListener(new ClickListener(game, field, this, gameStatusBar, sound));
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();

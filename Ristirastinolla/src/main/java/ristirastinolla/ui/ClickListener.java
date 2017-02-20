@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.sound.sampled.Clip;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import ristirastinolla.logic.Board;
@@ -23,6 +24,7 @@ public class ClickListener implements MouseListener {
     private GUI gui;
     private DrawBoard field;
     private JLabel gameBar;
+    private Sound sound;
 
     /**
      * Constructor.
@@ -30,13 +32,14 @@ public class ClickListener implements MouseListener {
      * @param field given field.
      * @param gui given gui. 
      * @param gameBar given textbar.
+     * @param sound given sound object
      */
-    public ClickListener(Game game, DrawBoard field, GUI gui, JLabel gameBar) {
+    public ClickListener(Game game, DrawBoard field, GUI gui, JLabel gameBar, Sound sound) {
         this.game = game;
         this.field = field;
         this.gui = gui;
         this.gameBar = gameBar;
-        //this.rblistener = new RestartbuttonListener(rb, game);
+        this.sound = sound;
     }
 
     @Override
@@ -50,6 +53,7 @@ public class ClickListener implements MouseListener {
         if (!game.getGameStatus() && !game.boardIsFull()) {
             if (game.valid(selectedRow, selectedCol)) {
                 game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
+                playSound(game.returnPlayer());
                 game.nextTurn();
                 gameBar.setText(game.returnPlayer() + "'s turn");
             } else {
@@ -68,6 +72,14 @@ public class ClickListener implements MouseListener {
         }
 
         gui.repaint();
+    }
+    
+    private void playSound(char player) {
+        if(player=='X') {
+            sound.playSoundX();
+        } else {
+            sound.playSoundO();
+        }
     }
 
     @Override

@@ -12,30 +12,24 @@ import javax.sound.sampled.*;
  */
 public class Sound {
 
-    private String playerXSound = "/Ristirastinolla/Sound/Xselection.wav";
-    private String playerOSound = "/Ristirastinolla/Sound/Oselection.wav";
     private Clip soundClipX;
     private Clip soundClipO;
-
-    Sound() {
-
-    }
 
     /**
      * This method will get the sound.
      */
-    public void playSound() {
+    public Sound() {
         try {
-            URL url = this.getClass().getClassLoader().getResource(playerXSound);
+            URL url = this.getClass().getResource("/Xselection.wav");
             if (url == null) {
-                System.out.println("Something went wrong");
+                System.out.println("No file source");
             } else {
                 AudioInputStream audio = AudioSystem.getAudioInputStream(url);
                 soundClipX = AudioSystem.getClip();
                 soundClipX.open(audio);
             }
 
-            url = this.getClass().getClassLoader().getResource(playerOSound);
+            url = this.getClass().getResource("/Oselection.wav");
             if (url == null) {
                 System.out.println("Something went wrong");
             } else {
@@ -45,25 +39,21 @@ public class Sound {
             }
 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println("Something went wrong");
+            System.out.println("Catch");
+
         }
     }
 
-    /**
-     * This method returns the clipX.
-     *
-     * @return soundX.
-     */
-    public Clip getXClip() {
-        return soundClipX;
+    
+    public void playSoundX() {
+        soundClipX.setFramePosition(0);
+        soundClipX.start();
+        
+        }
+    
+    public void playSoundO() {
+        soundClipO.setFramePosition(0);
+        soundClipO.start();
     }
-
-    /**
-     * This method returns the clipO.
-     *
-     * @return ClipO.
-     */
-    public Clip getOClip() {
-        return soundClipO;
-    }
+    
 }
