@@ -14,3 +14,4 @@ Päivä | Tunnit | Kuvaus
 14.2.2017| 5h | Peli tehty toimivaksi, koodia siistitty
 16.2.2017| 4h | Lisätty uusia testejä, paranneltu pelin toiminnallisuutta
 17.2.2017| 2h | Korjattu luokkakaavioita, tehty pit ja checkstyle-testit
+20.2.2017| 3h | Lisätty ääniefektit, tehty javadocit Sound -luokalle.
