@@ -36,8 +36,8 @@ public class GameTest {
 
     @Before
     public void setUp() {
-        board = new Board(3, 3);
-        game = new Game(3, 3, board);
+        board = new Board(5, 5);
+        game = new Game(5, 5, board);
     }
 
     @After
@@ -76,7 +76,7 @@ public class GameTest {
     
     @Test
     public void colAddition() {
-        assertEquals(false, game.valid(3, 1));
+        assertEquals(false, game.valid(1241, 1));
     }
 
     @Test
@@ -99,50 +99,14 @@ public class GameTest {
         assertEquals(false, game.hasWon('X'));
     }
 
-    @Test
-    public void rowHasWon() {
-        board.updateTable('O', 1, 0);
-        board.updateTable('O', 1, 1);
-        board.updateTable('O', 1, 2);
-        assertEquals(true, game.rowHasWon());
-    }
-
-    @Test
-    public void colHasWon() {
-        board.updateTable('X', 0, 0);
-        board.updateTable('X', 1, 0);
-        board.updateTable('X', 2, 0);
-        assertEquals(true, game.colHasWon());
-    }
-
-    @Test
-    public void diagonalHasWon() {
-        board.updateTable('X', 0, 2);
-        board.updateTable('X', 1, 1);
-        board.updateTable('X', 2, 0);
-        assertEquals(true, board.checkIfDiagonalWin());
-    }
-    
-    @Test
-    public void rowHasntWon() {
-        assertEquals(false, board.checkIfRowWin());
-    }    
-    
-    @Test
-    public void colHasntWon() {
-        assertEquals(false, board.checkIfColWin());
-    }
-    
-    public void diagonalHasntWon() {
-        assertEquals(false, board.checkIfDiagonalWin());
-    }
-    
     
     @Test 
     public void gameHasBeenWon() {
-        board.updateTable('X', 0, 2);
-        board.updateTable('X', 1, 1);
         board.updateTable('X', 2, 0);
+        board.updateTable('X', 2, 1);
+        board.updateTable('X', 2, 2);
+        board.updateTable('X', 2, 3);
+        board.updateTable('X', 2, 4);
         assertEquals(true, game.hasWon('X'));
     }
     
@@ -152,12 +116,8 @@ public class GameTest {
     }
 
     
-    @Test
-    public void gameHasntWon() {
-        game.colHasWon();       
-        board.updateTable('X', 1, 1);
-        assertEquals(false, game.hasWon('O'));
-    }
+
+    
     @Test
     public void selectedPlaceIsAlreadyTaken() {
         board.updateTable('X', 0, 0);
@@ -174,16 +134,11 @@ public class GameTest {
     }
     @Test
     public void boardIsFull() {
-        game.playerSelectMoves('X', 0, 0);
-        game.playerSelectMoves('O', 2, 0);
-        game.playerSelectMoves('X', 1, 0);
-        game.playerSelectMoves('O', 0, 1);
-        game.playerSelectMoves('X', 1, 1);
-        game.playerSelectMoves('O', 2, 1);
-        game.playerSelectMoves('X', 2, 2);
-        game.playerSelectMoves('O', 1, 2);
-        game.playerSelectMoves('X', 0, 2);
-        
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                game.playerSelectMoves('X', i, j);
+            }
+        }
         assertTrue(game.boardIsFull());
     }
     

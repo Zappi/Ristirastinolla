@@ -13,6 +13,7 @@ import ristirastinolla.logic.Game;
 
 /**
  * This class handles the clicks on the board.
+ *
  * @author jtamland
  */
 public class ClickListener implements MouseListener {
@@ -25,9 +26,10 @@ public class ClickListener implements MouseListener {
 
     /**
      * Constructor.
+     *
      * @param game given game logic.
      * @param field given field.
-     * @param gui given gui. 
+     * @param gui given gui.
      * @param gameBar given textbar.
      * @param sound given sound object
      */
@@ -44,8 +46,8 @@ public class ClickListener implements MouseListener {
         int mouseX = mouseEvent.getX();
         int mouseY = mouseEvent.getY();
 
-        int selectedRow = mouseX / 166;
-        int selectedCol = mouseY / 166;
+        int selectedRow = mouseX / 65;
+        int selectedCol = mouseY / 65;
 
         if (!game.getGameStatus() && !game.boardIsFull()) {
             if (game.valid(selectedRow, selectedCol)) {
@@ -60,7 +62,7 @@ public class ClickListener implements MouseListener {
 
         }
         if (game.boardIsFull() || game.hasWon('X') || game.hasWon('O')) {
-            if (game.boardIsFull() && !game.hasWon('X') || !game.hasWon('O')) {
+            if (game.boardIsFull() && !game.hasWon('X') && !game.hasWon('O')) {
                 gameBar.setText("Game over, Draw! Press restart to play again.");
             } else {
                 try {
@@ -75,9 +77,9 @@ public class ClickListener implements MouseListener {
 
         gui.repaint();
     }
-    
+
     private void playSound(char player) {
-        if(player=='X') {
+        if (player == 'X') {
             sound.playSoundX();
         } else {
             sound.playSoundO();

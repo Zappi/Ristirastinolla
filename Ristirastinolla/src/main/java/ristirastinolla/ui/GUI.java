@@ -11,17 +11,20 @@ import ristirastinolla.logic.Game;
 
 public class GUI extends JFrame implements Runnable {
 
-    private Game game;
-    private Board board;
+    private final Game game;
+    private final Board board;
     private JLabel gameStatusBar;
     private DrawBoard field;
     private JButton restartButton;
-    private Sound sound;
-
-    public GUI() {
-
-        this.board = new Board(3, 3);
-        this.game = new Game(3, 3, board);
+    private final Sound sound;
+    private final int row;
+    private final int col;
+    
+    public GUI(int row, int col) {
+        this.row = row;
+        this.col = col;
+        this.board = new Board(row, col);
+        this.game = new Game(row, col, board);
         this.sound = new Sound();
 
     }
@@ -32,8 +35,8 @@ public class GUI extends JFrame implements Runnable {
     @Override
     public void run() {
 
-        field = new DrawBoard(board);
-        field.setPreferredSize(new Dimension(500, 500));
+        field = new DrawBoard(board, row, col);
+        field.setPreferredSize(new Dimension(600, 600));
 
         gameStatusBar = new JLabel(game.returnPlayer() + "'s turn");
         gameStatusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));

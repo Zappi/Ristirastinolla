@@ -9,8 +9,8 @@ public class Game {
     private boolean gameOver;
     private char player = 'X';
     private Board board;
-    private int x;
-    private int y;
+    private int row;
+    private int col;
 
     /**
      * Constructor.
@@ -19,8 +19,8 @@ public class Game {
      * @param board game board
      */
     public Game(int x, int y, Board board) {
-        this.x = x;
-        this.y = y;
+        this.row = x;
+        this.col = y;
         this.board = board;
         board.setBoard();
         this.gameOver = false;
@@ -36,10 +36,10 @@ public class Game {
      *
      */
     public void playerSelectMoves(char player, int x, int y) { //This method will check the final selection wheter the mark can be placed on the exact place.
-        int row = x;
-        int col = y;
+        int rowPosition = x;
+        int colPosition = y;
 
-        board.updateTable(player, row, col);
+        board.updateTable(player, rowPosition, colPosition);
 
         if (hasWon(player)) {
             gameOver = true;
@@ -48,23 +48,20 @@ public class Game {
 
     /**
      * Checks if the given position is valid.
-     * @param row checks if the given row-value is correct on the gametable
-     * @param col checks if the given co-value is correct on the gametable
+     * @param x checks if the given row-value is correct on the gametable
+     * @param y checks if the given co-value is correct on the gametable
      * @return true if selected positions are unvalid, false if selected
      * positions are valid
      */
-    public boolean valid(int row, int col) {  //This method checks if the selected coordinates are appropriate and returns true if they are not. 
-        if (row > x - 1 || row < 0) {
+    public boolean valid(int x, int y) {  //This method checks if the selected coordinates are appropriate and returns true if they are not. 
+        if (x > row - 1 || x < 0) {
             return false;
         }
-        if (col > y - 1 || col < 0) {
+        if (y > col - 1 || y < 0) {
             return false;
         }
-        if (board.checkIfSpotIsAlreadyTaken(row, col)) { //Checks if there is already either X or O on that place.
-            return false;
-        }
-
-        return true;
+        
+        return !board.checkIfSpotIsAlreadyTaken(x, y);
     }
 
     /**
@@ -76,21 +73,7 @@ public class Game {
      * will return false
      */
     public boolean hasWon(char player) {
-        return (rowHasWon() || colHasWon() || diagonalHasWon());
-    }
-
-    /**
-     * This method checks if any row line has won.
-     *
-     * @return true if game has won and false if not
-     */
-    public boolean rowHasWon() {
-        if (board.checkIfRowWin()) {
-            gameOver = true;
-            return true;
-        }
-
-        return false;
+        return (board.checkIfWon(player));
     }
 
     /**
@@ -100,32 +83,6 @@ public class Game {
      */
     public boolean getGameStatus() {
         return gameOver;
-    }
-
-    /**
-     * This method checks if any col line has won.
-     *
-     * @return true if game has won and false if not
-     */
-    public boolean colHasWon() {
-        if (board.checkIfColWin()) {
-            gameOver = true;
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * This method checks if any diagonal line has won.
-     *
-     * @return true if game has won and false if not
-     */
-    public boolean diagonalHasWon() {
-        if (board.checkIfDiagonalWin()) {
-            gameOver = true;
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -163,9 +120,9 @@ public class Game {
      * @return true if the board is full and false if there is still free spots.
      */
     public boolean boardIsFull() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                if (!board.checkIfSpotIsAlreadyTaken(row, col)) {
+        for (int x = 0; x < row; x++) {
+            for (int y = 0; y < col; y++) {
+                if (!board.checkIfSpotIsAlreadyTaken(x, y)) {
                     return false;
                 }
             }

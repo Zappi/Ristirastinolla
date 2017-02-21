@@ -34,7 +34,7 @@ public class BoardTest {
 
     @Before
     public void setUp() {
-        board = new Board(3, 3);
+        board = new Board(5, 5);
     }
 
     @After
@@ -48,12 +48,12 @@ public class BoardTest {
 
     @Test
     public void boardRowSizeIsCorrect() {
-        assertEquals(3, board.getRowSize());
+        assertEquals(5, board.getRowSize());
     }
 
     @Test
     public void boardColSizeIsCorrect() {
-        assertEquals(3, board.getColumnSize());
+        assertEquals(5, board.getColumnSize());
     }
 
     @Test
@@ -66,30 +66,6 @@ public class BoardTest {
     public void updateTableMethodWorksWithPlayerY() {
         board.updateTable('Y', 0, 1);
         assertTrue(board.returnPosition('Y', 0, 1));
-    }
-
-    @Test
-    public void rowWins() {
-        board.updateTable('O', 1, 0);
-        board.updateTable('O', 1, 1);
-        board.updateTable('O', 1, 2);
-        assertEquals(true, board.checkIfRowWin());
-    }
-
-    @Test
-    public void colWins() {
-        board.updateTable('X', 0, 0);
-        board.updateTable('X', 1, 0);
-        board.updateTable('X', 2, 0);
-        assertEquals(true, board.checkIfColWin());
-    }
-
-    @Test
-    public void diagonalWins() {
-        board.updateTable('X', 0, 2);
-        board.updateTable('X', 1, 1);
-        board.updateTable('X', 2, 0);
-        assertEquals(true, board.checkIfDiagonalWin());
     }
 
     @Test
@@ -113,11 +89,4 @@ public class BoardTest {
     public void falsePositionReturning() {
         assertEquals(false, board.returnPosition('X', 2, 2));
     }
-
-//    @Test
-//    public void setBoardWorksCorrectly() {
-//        board.setBoard();
-//        char[][] wantedBoard = new char[][]{'_','_','_'  
-//    };
-//    }
 }
