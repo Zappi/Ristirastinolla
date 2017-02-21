@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 16.2.2017| 4h | Lisätty uusia testejä, paranneltu pelin toiminnallisuutta
 17.2.2017| 2h | Korjattu luokkakaavioita, tehty pit ja checkstyle-testit
 20.2.2017| 3h | Lisätty ääniefektit, tehty javadocit Sound -luokalle.
+21.2.2017| 5h | Ohjelman kovakoodausta vähennetty, nyt mahdollista laajentaa kenttää lähes rajattomasti, muokattu ja lisätty testejä.

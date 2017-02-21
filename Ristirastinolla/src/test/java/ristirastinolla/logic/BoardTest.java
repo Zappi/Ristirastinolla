@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import ristirastinolla.logic.Board;
 
 /**
  *
@@ -34,7 +33,7 @@ public class BoardTest {
 
     @Before
     public void setUp() {
-        board = new Board(5, 5);
+        board = new Board(9, 9);
     }
 
     @After
@@ -48,12 +47,12 @@ public class BoardTest {
 
     @Test
     public void boardRowSizeIsCorrect() {
-        assertEquals(5, board.getRowSize());
+        assertEquals(9, board.getRowSize());
     }
 
     @Test
     public void boardColSizeIsCorrect() {
-        assertEquals(5, board.getColumnSize());
+        assertEquals(9, board.getColumnSize());
     }
 
     @Test
@@ -88,5 +87,45 @@ public class BoardTest {
     @Test
     public void falsePositionReturning() {
         assertEquals(false, board.returnPosition('X', 2, 2));
+    }
+    
+    @Test
+    public void horizontalWon() {
+        board.updateTable('X', 0, 0);
+        board.updateTable('X', 1, 0);
+        board.updateTable('X', 2, 0);
+        board.updateTable('X', 3, 0);
+        board.updateTable('X', 4, 0);
+        assertTrue(board.checkIfWon('X'));
+    }
+    
+    @Test
+    public void verticalWon() {
+        board.updateTable('X', 0, 0);
+        board.updateTable('X', 0, 1);
+        board.updateTable('X', 0, 2);
+        board.updateTable('X', 0, 3);
+        board.updateTable('X', 0, 4);
+        assertTrue(board.checkIfWon('X'));
+    }
+    
+    @Test
+    public void digonalWon() {
+        board.updateTable('X', 0, 0);
+        board.updateTable('X', 1, 1);
+        board.updateTable('X', 2, 2);
+        board.updateTable('X', 3, 3);
+        board.updateTable('X', 4, 4);
+        assertTrue(board.checkIfWon('X'));
+    }
+    
+    @Test
+    public void anotherDiagonalWon() {
+        board.updateTable('X', 0, 4);
+        board.updateTable('X', 1, 3);
+        board.updateTable('X', 2, 2);
+        board.updateTable('X', 3, 1);
+        board.updateTable('X', 4, 0);
+        assertTrue(board.checkIfWon('X'));
     }
 }

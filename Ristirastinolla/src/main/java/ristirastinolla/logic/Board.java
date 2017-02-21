@@ -73,16 +73,16 @@ public class Board {
         for (int x = 0; x < this.board.length; x++) {
             for (int y = 0; y < this.board[x].length; y++) {
                 
-                if(checkRow(x, y, 0, 1, 5, player)) {
+                if(checkRow(x, y, 0, 1, 5, player)) { //Horizontal
                     return true;
                 }
-                if(checkRow(x, y, 1, 0, 5, player)) {
+                if(checkRow(x, y, 1, 0, 5, player)) { //Vertical 
                     return true;
                 }
-                if(checkRow(x, y, 1, 1, 5, player)) {
+                if(checkRow(x, y, 1, 1, 5, player)) { //Diagonal
                     return true;
                 }
-                if(checkRow(x, y, 1, -1, 5, player)) {
+                if(checkRow(x, y, 1, -1, 5, player)) { //Another diagonal
                     return true;
                 }
                 
@@ -92,8 +92,8 @@ public class Board {
         return false;
     }
     
-
-    private boolean checkRow(int r0, int c0, int dr, int dc, int len, char player) {
+    
+    private boolean checkRow(int r0, int c0, int dr, int dc, int len, char player) {  
         for (int i = 0; i != len; i++) {
             int r = r0 + i*dr;
             int c = c0 + i*dc;
@@ -104,20 +104,6 @@ public class Board {
         }
             
         return true;
-    }
-
-    /**
-     * This method confirms that if we have found a possible winner we check
-     * that subsequents are the same.
-     *
-     * @param a certain mark on the first location
-     * @param b certain mark on the second location
-     * @param c certain mark on the third location
-     * @param d certain mark on the fourth
-     * @return true if all three subsequents are the same
-     */
-    public boolean finalCheck(char a, char b, char c, char d) { //Does the final check wheter the whole line has same values and the other player wins!
-        return ((a != '_') && (a == b) && (b == c) && (c == d));
     }
 
     /**

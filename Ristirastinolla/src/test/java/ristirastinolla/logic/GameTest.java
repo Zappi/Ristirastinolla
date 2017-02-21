@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import ristirastinolla.logic.Game;
 
 /**
  *
@@ -36,8 +35,8 @@ public class GameTest {
 
     @Before
     public void setUp() {
-        board = new Board(5, 5);
-        game = new Game(5, 5, board);
+        board = new Board(9, 9);
+        game = new Game(9, 9, board);
     }
 
     @After
@@ -53,7 +52,7 @@ public class GameTest {
     public void whenGivingUnvalidRowLessThanZeroReturnFalse() {
         assertEquals(false, game.valid(-2, 0));
     }
-    
+
     @Test
     public void giveValidRowValue() {
         assertEquals(true, game.valid(2, 0));
@@ -68,12 +67,12 @@ public class GameTest {
     public void whenGivingUnvalidColLessThanZeroReturnFalse() {
         assertFalse(game.valid(2, -4));
     }
- 
+
     @Test
     public void giveValidColValue() {
         assertEquals(true, game.valid(2, 2));
     }
-    
+
     @Test
     public void colAddition() {
         assertEquals(false, game.valid(1241, 1));
@@ -81,7 +80,7 @@ public class GameTest {
 
     @Test
     public void whenGivingUnvalidColBiggerThanMAxRowReturnFalse() {
-        assertFalse(game.valid(2, 6));
+        assertFalse(game.valid(2, 124));
     }
 
     @Test
@@ -99,8 +98,7 @@ public class GameTest {
         assertEquals(false, game.hasWon('X'));
     }
 
-    
-    @Test 
+    @Test
     public void gameHasBeenWon() {
         board.updateTable('X', 2, 0);
         board.updateTable('X', 2, 1);
@@ -109,22 +107,19 @@ public class GameTest {
         board.updateTable('X', 2, 4);
         assertEquals(true, game.hasWon('X'));
     }
-    
+
     @Test
     public void rightPlayer() {
         assertEquals('X', game.returnPlayer());
     }
 
-    
-
-    
     @Test
     public void selectedPlaceIsAlreadyTaken() {
         board.updateTable('X', 0, 0);
         board.updateTable('X', 1, 1);
         assertEquals(false, game.valid(1, 1));
     }
-    
+
     @Test
     public void nextPlayerFirstX() {
         game.nextTurn();
@@ -132,36 +127,51 @@ public class GameTest {
         game.nextTurn();
         assertEquals(game.returnPlayer(), 'X');
     }
+
     @Test
     public void boardIsFull() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 game.playerSelectMoves('X', i, j);
             }
         }
         assertTrue(game.boardIsFull());
     }
-    
-    @Test 
+
+    @Test
     public void boardIsNotFull() {
         game.playerSelectMoves('X', 0, 0);
         assertFalse(game.boardIsFull());
     }
-    
+
     @Test
     public void checkIfClickIsValid() {
         assertTrue(game.valid(0, 0));
     }
-    
+
     @Test
     public void checkIfClickXIsNotValid() {
         assertFalse(game.valid(51, 0));
     }
-    
+
     @Test
     public void checkIfClickYIsNotValid() {
-        assertFalse(game.valid(3,151251));
+        assertFalse(game.valid(3, 151251));
     }
-    
+
+    @Test
+    public void gameIsNotOVer() {
+        assertFalse(gameOver);
+    }
+
+    @Test
+    public void gameIsOver() {
+        game.playerSelectMoves('X', 2, 0);
+        game.playerSelectMoves('X', 2, 1);
+        game.playerSelectMoves('X', 2, 2);
+        game.playerSelectMoves('X', 2, 3);
+        game.playerSelectMoves('X', 2, 4);
+        assertEquals(true, game.getGameStatus());
+    }
 
 }

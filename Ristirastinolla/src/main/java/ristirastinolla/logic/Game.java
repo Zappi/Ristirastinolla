@@ -14,6 +14,7 @@ public class Game {
 
     /**
      * Constructor.
+     *
      * @param x size of the boards row
      * @param y size of the boards col
      * @param board game board
@@ -48,6 +49,7 @@ public class Game {
 
     /**
      * Checks if the given position is valid.
+     *
      * @param x checks if the given row-value is correct on the gametable
      * @param y checks if the given co-value is correct on the gametable
      * @return true if selected positions are unvalid, false if selected
@@ -60,7 +62,7 @@ public class Game {
         if (y > col - 1 || y < 0) {
             return false;
         }
-        
+
         return !board.checkIfSpotIsAlreadyTaken(x, y);
     }
 
