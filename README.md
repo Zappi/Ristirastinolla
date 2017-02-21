@@ -1,6 +1,6 @@
 # Ristirastinolla
 
-Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaan. Pelaajat klikkaavat vuorotellen haluamaansa ruutua ja kun toinen pelaaja on saanut kolmensuoran.
+Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaan. Pelaajat klikkaavat vuorotellen haluamaansa ruutua ja kun toinen pelaaja on saanut viidensuoran.
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
