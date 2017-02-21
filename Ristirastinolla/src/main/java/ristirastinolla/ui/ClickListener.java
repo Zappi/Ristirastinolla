@@ -4,17 +4,11 @@
 package ristirastinolla.ui;
 
 import ristirastinolla.graphics.DrawBoard;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Time;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.Clip;
-import javax.swing.JButton;
 import javax.swing.JLabel;
-import ristirastinolla.logic.Board;
 import ristirastinolla.logic.Game;
 
 /**

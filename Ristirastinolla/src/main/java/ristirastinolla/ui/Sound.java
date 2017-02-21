@@ -6,7 +6,7 @@ import java.net.URL;
 import javax.sound.sampled.*;
 
 /**
- * This class gets the sound effects and plays them. 
+ * This class gets the sound effects and plays them.
  *
  * @author jtamland
  */
@@ -38,15 +38,15 @@ public class Sound {
                 soundClipO = AudioSystem.getClip();
                 soundClipO.open(audio);
             }
-            
+
             url = this.getClass().getResource("/winner.wav");
-            if(url == null) {
+            if (url == null) {
                 System.out.println("No audio source");
             } else {
                 AudioInputStream audio = AudioSystem.getAudioInputStream(url);
                 winnerSound = AudioSystem.getClip();
                 winnerSound.open(audio);
-                
+
             }
 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -56,24 +56,25 @@ public class Sound {
     }
 
     /**
-     *Plays the sound for player X.
+     * Plays the sound for player X.
      */
     public void playSoundX() {
         soundClipX.setFramePosition(0);
         soundClipX.start();
-        
-        }
-    
+
+    }
+
     /**
-     *Plays the sound for player O.
+     * Plays the sound for player O.
      */
     public void playSoundO() {
         soundClipO.setFramePosition(0);
         soundClipO.start();
     }
-    
+
     /**
      * If either one of the players has won this sound will be played.
+     *
      * @throws InterruptedException
      */
     public void playWinnerSound() throws InterruptedException {
@@ -81,5 +82,5 @@ public class Sound {
         winnerSound.setFramePosition(0);
         winnerSound.start();
     }
-    
+
 }
