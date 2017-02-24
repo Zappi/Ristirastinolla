@@ -62,47 +62,46 @@ public class Board {
     public int getColumnSize() {
         return board[0].length;
     }
-    
+
     /**
-     * This method checks if the player has actually won. 
+     * This method checks if the player has actually won.
+     *
      * @param player who's currently playing.
      * @return true if the current player has won with his/her move.
      */
-    
     public boolean checkIfWon(char player) {
         for (int x = 0; x < this.board.length; x++) {
             for (int y = 0; y < this.board[x].length; y++) {
-                
-                if(checkRow(x, y, 0, 1, 5, player)) { //Horizontal
+
+                if (checkRow(x, y, 0, 1, 5, player)) { //Horizontal
                     return true;
                 }
-                if(checkRow(x, y, 1, 0, 5, player)) { //Vertical 
+                if (checkRow(x, y, 1, 0, 5, player)) { //Vertical 
                     return true;
                 }
-                if(checkRow(x, y, 1, 1, 5, player)) { //Diagonal
+                if (checkRow(x, y, 1, 1, 5, player)) { //Diagonal
                     return true;
                 }
-                if(checkRow(x, y, 1, -1, 5, player)) { //Another diagonal
+                if (checkRow(x, y, 1, -1, 5, player)) { //Another diagonal
                     return true;
                 }
-                
+
             }
         }
 
         return false;
     }
-    
-    
-    private boolean checkRow(int r0, int c0, int dr, int dc, int len, char player) {  
+
+    private boolean checkRow(int r0, int c0, int dr, int dc, int len, char player) {
         for (int i = 0; i != len; i++) {
-            int r = r0 + i*dr;
-            int c = c0 + i*dc;
-            
-            if( r < 0 ||c < 0 ||r >= board.length || c >= board[r].length || board[r][c] != player) {
+            int r = r0 + i * dr;
+            int c = c0 + i * dc;
+
+            if (r < 0 || c < 0 || r >= board.length || c >= board[r].length || board[r][c] != player) {
                 return false;
             }
         }
-            
+
         return true;
     }
 

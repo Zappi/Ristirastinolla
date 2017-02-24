@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 17.2.2017| 2h | Korjattu luokkakaavioita, tehty pit ja checkstyle-testit
 20.2.2017| 3h | Lisätty ääniefektit, tehty javadocit Sound -luokalle.
 21.2.2017| 5h | Ohjelman kovakoodausta vähennetty, nyt mahdollista laajentaa kenttää lähes rajattomasti, muokattu ja lisätty testejä.
+24.2.2017| 2h | Tehty jar-tiedosto, generoitu checkstyle ja pit, kirjoitettu rakennekuvaus.

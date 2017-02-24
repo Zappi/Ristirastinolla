@@ -23,6 +23,7 @@ public class DrawBoard extends JPanel {
 
     /**
      * Draws the board.
+     *
      * @param board given board.
      * @param row given row size.
      * @param col given col size.
@@ -43,10 +44,10 @@ public class DrawBoard extends JPanel {
         //Draws the lines
         g.setColor(Color.DARK_GRAY);
         for (int i = 1; i < row; i++) {
-            g.fillRoundRect(0, cellSize * i - (20 / 2), fieldWidth - 1, 20, 20, 20);
+            g.fillRoundRect(0, cellSize * i - (20 / 2), fieldWidth - 3, 10, 10, 10);
         }
         for (int j = 0; j < col; j++) {
-            g.fillRoundRect(cellSize * j - (20 / 2), 0, 10, fieldHeight - 1, 20, 20);
+            g.fillRoundRect(cellSize * j - (20 / 2), 0, 10, fieldHeight - 3, 20, 20);
         }
 
         Graphics2D graphics = (Graphics2D) g;
@@ -60,13 +61,13 @@ public class DrawBoard extends JPanel {
 
                 if (board.returnPosition('X', x, y)) {
                     graphics.setColor(Color.BLUE.darker());
-                    int x2 = (x + 1) * cellSize - (cellSize / 6);
-                    int y2 = (y + 1) * cellSize - (cellSize / 6);
+                    int x2 = (x + 1) * cellSize - (cellSize / 7);
+                    int y2 = (y + 1) * cellSize - (cellSize / 7);
                     graphics.drawLine(x1, y1, x2, y2);
                     graphics.drawLine(x2, y1, x1, y2);
                 } else if (board.returnPosition('O', x, y)) {
                     graphics.setColor(Color.red);
-                    graphics.drawOval(x1, y1, cellSize - (cellSize / 6) * 2, cellSize - (cellSize / 6) * 2);
+                    graphics.drawOval(x1, y1, cellSize - (cellSize / 7) * 2, cellSize - (cellSize / 7) * 2);
                 }
             }
         }

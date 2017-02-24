@@ -3,6 +3,8 @@ package ristirastinolla.ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.*;
 
 /**
@@ -75,10 +77,13 @@ public class Sound {
     /**
      * If either one of the players has won this sound will be played.
      *
-     * @throws InterruptedException
      */
-    public void playWinnerSound() throws InterruptedException {
-        Thread.sleep(100);
+    public void playWinnerSound() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
+        }
         winnerSound.setFramePosition(0);
         winnerSound.start();
     }

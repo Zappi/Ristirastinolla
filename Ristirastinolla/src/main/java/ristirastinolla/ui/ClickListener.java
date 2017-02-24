@@ -65,11 +65,7 @@ public class ClickListener implements MouseListener {
             if (game.boardIsFull() && !game.hasWon('X') && !game.hasWon('O')) {
                 gameBar.setText("Game over, Draw! Press restart to play again.");
             } else {
-                try {
-                    sound.playWinnerSound();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(ClickListener.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                sound.playWinnerSound();
                 game.nextTurn();
                 gameBar.setText("Game over, player " + game.returnPlayer() + " has won. Press restart to play again.");
             }
