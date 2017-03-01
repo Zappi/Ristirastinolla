@@ -10,5 +10,5 @@ Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaa
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/checkstyle-raportti/Viikko%206/site/checkstyle.html)
 
-[Käyttöohjeet](Ristirastinolla/dokumentaatio/käyttöohjeet.md)
+[Käyttöohjeet](dokumentaatio/käyttöohjeet.md)
 
