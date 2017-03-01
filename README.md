@@ -6,7 +6,9 @@ Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaa
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/pit-raportti/201702241107/index.html)
+[Pit-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/pit-raportti/201702241107/index.html)
 
-[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/checkstyle-raportti/Viikko%206/site/checkstyle.html)
+[Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/checkstyle-raportti/Viikko%206/site/checkstyle.html)
+
+[Käyttöohjeet](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/dokumentaatio/k%C3%A4ytt%C3%B6ohjeet.md)
 
