@@ -49,7 +49,9 @@ public class ClickListener implements MouseListener {
         int selectedRow = mouseX / 65;
         int selectedCol = mouseY / 65;
 
-        if (!game.getGameStatus() && !game.boardIsFull()) {
+        if(!game.getGameStatus()) {
+        
+        if (!game.boardIsFull()) {
             if (game.valid(selectedRow, selectedCol)) {
                 game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
                 playSound(game.returnPlayer());
@@ -69,6 +71,7 @@ public class ClickListener implements MouseListener {
                 game.nextTurn();
                 gameBar.setText("Game over, player " + game.returnPlayer() + " has won. Press restart to play again.");
             }
+        }
         }
 
         gui.repaint();

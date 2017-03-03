@@ -61,13 +61,13 @@ public class DrawBoard extends JPanel {
 
                 if (board.returnPosition('X', x, y)) {
                     graphics.setColor(Color.BLUE.darker());
-                    int x2 = (x + 1) * cellSize - (cellSize / 7);
-                    int y2 = (y + 1) * cellSize - (cellSize / 7);
+                    int x2 = (x + 1) * cellSize - (cellSize / 5);
+                    int y2 = (y + 1) * cellSize - (cellSize / 5);
                     graphics.drawLine(x1, y1, x2, y2);
                     graphics.drawLine(x2, y1, x1, y2);
                 } else if (board.returnPosition('O', x, y)) {
                     graphics.setColor(Color.red);
-                    graphics.drawOval(x1, y1, cellSize - (cellSize / 7) * 2, cellSize - (cellSize / 7) * 2);
+                    graphics.drawOval(x1, y1, cellSize - (cellSize / 5) * 2, cellSize - (cellSize / 5) * 2);
                 }
             }
         }
