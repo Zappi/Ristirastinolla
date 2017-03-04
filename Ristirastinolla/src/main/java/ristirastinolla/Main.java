@@ -1,4 +1,4 @@
- package ristirastinolla;
+package ristirastinolla;
 
 import javax.swing.SwingUtilities;
 import ristirastinolla.ui.GUI;

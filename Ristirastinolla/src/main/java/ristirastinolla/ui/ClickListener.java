@@ -49,29 +49,29 @@ public class ClickListener implements MouseListener {
         int selectedRow = mouseX / 65;
         int selectedCol = mouseY / 65;
 
-        if(!game.getGameStatus()) {
-        
-        if (!game.boardIsFull()) {
-            if (game.valid(selectedRow, selectedCol)) {
-                game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
-                playSound(game.returnPlayer());
-                game.nextTurn();
-                gameBar.setText(game.returnPlayer() + "'s turn");
-            } else {
-                gameBar.setText("Unvalid slot");
-                return;
-            }
+        if (!game.getGameStatus()) {
 
-        }
-        if (game.boardIsFull() || game.hasWon('X') || game.hasWon('O')) {
-            if (game.boardIsFull() && !game.hasWon('X') && !game.hasWon('O')) {
-                gameBar.setText("Game over, Draw! Press restart to play again.");
-            } else {
-                sound.playWinnerSound();
-                game.nextTurn();
-                gameBar.setText("Game over, player " + game.returnPlayer() + " has won. Press restart to play again.");
+            if (!game.boardIsFull()) {
+                if (game.valid(selectedRow, selectedCol)) {
+                    game.playerSelectMoves(game.returnPlayer(), selectedRow, selectedCol);
+                    playSound(game.returnPlayer());
+                    game.nextTurn();
+                    gameBar.setText(game.returnPlayer() + "'s turn");
+                } else {
+                    gameBar.setText("Unvalid slot");
+                    return;
+                }
+
             }
-        }
+            if (game.boardIsFull() || game.hasWon('X') || game.hasWon('O')) {
+                if (game.boardIsFull() && !game.hasWon('X') && !game.hasWon('O')) {
+                    gameBar.setText("Game over, Draw! Press restart to play again.");
+                } else {
+                    sound.playWinnerSound();
+                    game.nextTurn();
+                    gameBar.setText("Game over, player " + game.returnPlayer() + " has won. Press restart to play again.");
+                }
+            }
         }
 
         gui.repaint();
