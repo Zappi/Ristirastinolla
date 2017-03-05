@@ -12,3 +12,4 @@ Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaa
 
 [Käyttöohjeet](dokumentaatio/käyttöohjeet.md)
 
+[Javadoc](https://htmlpreview.github.io/?https://github.com/Zappi/Ristirastinolla/blob/master/Javadoc/index.html)
