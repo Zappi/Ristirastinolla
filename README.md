@@ -1,6 +1,6 @@
-# Ristirastinolla
+# Tic-Tac-Toe
 
-Aiheena on perinteinen ristinolla, jossa kaksi pelaajaa pelaavat toisiaan vastaan. Pelaajat klikkaavat vuorotellen haluamaansa ruutua ja kun toinen pelaaja on saanut viidensuoran.
+Classical tic-tac-toe game made as a part of my school project. Unfortunately the documentation is in finnish.
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
